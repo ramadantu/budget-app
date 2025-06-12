@@ -8,6 +8,15 @@
   "private": true,
   "workspaces": [
     "apps/*",
-    "packages/*"
-  ]
+    "services/*"
+  ],
+  "scripts": {
+    "start:backend": "yarn workspace backend start",
+    "start:frontend": "yarn workspace frontend start",
+    "start": "concurrently \"yarn start:backend\" \"yarn start:frontend\"",
+    "build:backend": "yarn workspace backend compile"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
 }
