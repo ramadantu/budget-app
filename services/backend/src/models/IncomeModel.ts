@@ -1,12 +1,12 @@
-import mongoose, { Document, Schema } from 'mongoose';
+import mongoose, { Document, Schema } from 'mongoose'
 
 export interface IIncome extends Document {
-  title: string;
-  amount: number;
-  type: string;
-  date: Date;
-  category: string;
-  description: string;
+  title: string
+  amount: number
+  type: string
+  date: Date
+  category: string
+  description: string
 }
 
 const IncomeSchema: Schema<IIncome> = new Schema(
@@ -20,7 +20,7 @@ const IncomeSchema: Schema<IIncome> = new Schema(
     amount: {
       type: Number,
       required: true,
-      max: 1_000_000, 
+      max: 1_000_000,
       trim: true,
     },
     type: {
@@ -44,7 +44,7 @@ const IncomeSchema: Schema<IIncome> = new Schema(
       maxLength: 20,
     },
   },
-  { timestamps: true }
-);
+  { timestamps: true },
+)
 
-export default mongoose.model<IIncome>('Income', IncomeSchema);
+export default mongoose.model<IIncome>('Income', IncomeSchema)

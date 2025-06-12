@@ -1,12 +1,12 @@
-import mongoose, { Document, Schema } from 'mongoose';
+import mongoose, { Document, Schema } from 'mongoose'
 
 export interface IExpense extends Document {
-  title: string;
-  amount: number;
-  type: string;
-  date: Date;
-  category: string;
-  description: string;
+  title: string
+  amount: number
+  type: string
+  date: Date
+  category: string
+  description: string
 }
 
 const ExpenseSchema: Schema<IExpense> = new Schema(
@@ -42,7 +42,7 @@ const ExpenseSchema: Schema<IExpense> = new Schema(
       maxLength: 20,
     },
   },
-  { timestamps: true }
-);
+  { timestamps: true },
+)
 
-export default mongoose.model<IExpense>('Expense', ExpenseSchema);
+export default mongoose.model<IExpense>('Expense', ExpenseSchema)
