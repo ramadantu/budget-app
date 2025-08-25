@@ -1,7 +1,7 @@
 import js from "@eslint/js";
 import globals from "globals";
 import tseslint from "typescript-eslint";
-import pluginReact from "eslint-plugin-react";
+import pluginReact, { rules } from "eslint-plugin-react";
 import { defineConfig } from "eslint/config";
 import eslintConfigPrettier from "eslint-config-prettier/flat";
 
@@ -15,6 +15,10 @@ export default defineConfig([
     {
       ignores: [
         "**/dist/**",
-      ]
+      ],
+      rules: {
+        "react/jsx-uses-react": "off",
+        "react/react-in-jsx-scope": "off",
+      }
     }
 ]);
