@@ -22,7 +22,7 @@ export const addExpense = async (req: Request, res: Response) => {
   try {
     await expense.save()
     res.status(200).json({ message: 'Expense Added' })
-  } catch (error) {
+  } catch (error: any) {
     res.status(500).json({ message: 'Server Error', error: error.message })
   }
 }
@@ -31,7 +31,7 @@ export const getExpenses = async (req: Request, res: Response) => {
   try {
     const expenses = await ExpenseModel.find().sort({ createdAt: -1 })
     res.status(200).json(expenses)
-  } catch (error) {
+  } catch (error: any) {
     res.status(500).json({ message: 'Server Error', error: error.message })
   }
 }
@@ -41,7 +41,7 @@ export const deleteExpense = async (req: Request, res: Response) => {
   try {
     await ExpenseModel.findByIdAndDelete(id)
     res.status(200).json({ message: 'Expense Deleted' })
-  } catch (error) {
+  } catch (error: any) {
     res.status(500).json({ message: 'Server Error', error: error.message })
   }
 }
