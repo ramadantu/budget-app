@@ -12,13 +12,14 @@
   ],
   "scripts": {
     "start:backend": "yarn workspace backend start",
-    "start:frontend": "yarn workspace frontend start",
-    "start": "concurrently \"yarn start:backend\" \"yarn start:frontend\"",
+    "start:web": "yarn workspace web start",
+    "start": "concurrently \"yarn start:backend\" \"yarn start:web\"",
     "build:backend": "yarn workspace backend compile",
     "lint": "eslint . --ext .js,.ts,.jsx,.tsx --fix",
     "format": "prettier --write \"**/*.{js,ts,jsx,tsx,json,css,md}\""
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.28.0",
     "concurrently": "^9.1.2",
     "eslint": "^9.28.0",
