@@ -3,7 +3,7 @@
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "moduleResolution": "node",
+    "moduleResolution": "node10",
     "strict": true,
     "target": "ESNext",
     "module": "ESNext",
