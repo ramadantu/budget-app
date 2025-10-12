@@ -8,7 +8,7 @@
     { "type": "docs", "section": "Docs" }
   ],
   "packages": {
-    "apps/web": { "release-type": "node", "component": "web", "separated-pull-request": true },
-    "packages/ui": { "release-type": "node", "component": "ui", "skip-github-release": true, "skip-github-pull-request": true, "skip-changelog": true}
+    "apps/web": { "release-type": "node", "component": "web", "separate-pull-requests": true },
+    "packages/ui": { "release-type": "node", "component": "ui", "skip-github-release": true, "skip-github-pull-requests": true, "skip-changelog": true}
   }
 }
