@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1.1](https://github.com/ramadantu/budget-app/compare/web-v1.1.0...web-v1.1.1) (2025-10-12)
+
+
+### Chores
+
+* config release-please ([b0ca2f7](https://github.com/ramadantu/budget-app/commit/b0ca2f7a916aedfdd25d10c192856596ac54f450))
+* remove versioning ([53fda53](https://github.com/ramadantu/budget-app/commit/53fda53c4fa157251a3ef1cac0f131fa58cbb274))
+* test release-please trigger ([1a02110](https://github.com/ramadantu/budget-app/commit/1a0211007d1bfc79b39a3886afbad2c9862bfab6))
+
 ## [1.1.0](https://github.com/ramadantu/budget-app/compare/web-v1.0.0...web-v1.1.0) (2025-10-12)
 
 
