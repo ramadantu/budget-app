@@ -1,0 +1,1 @@
+export { useGlobalContext, GlobalProvider } from './globalContext'

@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-import { GlobalProvider } from './context/globalContext'
+import { GlobalProvider } from '@budget-app/ui'
 import { GlobalStyle } from './styles/GlobalStyle'
 import KeycloakProvider from './KeycloakProvider'
 const rootElement = document.getElementById('root')

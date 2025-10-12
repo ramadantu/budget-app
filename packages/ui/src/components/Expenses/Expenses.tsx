@@ -1,32 +1,32 @@
 import { useEffect } from 'react'
-import { Income as IncomeStyled } from './StyledIncome'
+import { Expenses as ExpensesStyled } from './StyledExpenses'
 import { useGlobalContext } from '../../context/globalContext'
-import { InnerLayout } from '../Layout/StyledInner'
+import InnerLayout from '../Layout/StyledInner'
 import Form from '../Form/Form'
 import HistoryList from '../History/HistoryList'
 
-function Incomes() {
+function Expenses() {
   const ctxResponse = useGlobalContext()
 
   useEffect(() => {
-    ctxResponse?.getIncomes()
+    ctxResponse?.getExpenses()
   }, [])
   return (
-    <IncomeStyled>
+    <ExpensesStyled>
       <InnerLayout>
-        <h1>Incomes</h1>
+        <h1>Expenses</h1>
         <h2 className="total-income">
-          Total Incomes: <span>${ctxResponse?.totalIncomes()}</span>
+          Total Expenses: <span>${ctxResponse?.totalExpenses()}</span>
         </h2>
         <div className="income-content">
           <div className="form-container">
-            <Form type={'Incomes'} />
+            <Form type={'Expenses'} />
           </div>
-          <HistoryList list={ctxResponse?.incomes ?? []} />
+          <HistoryList list={ctxResponse?.expenses ?? []} />
         </div>
       </InnerLayout>
-    </IncomeStyled>
+    </ExpensesStyled>
   )
 }
 
-export default Incomes
+export default Expenses
