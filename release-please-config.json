@@ -1,5 +1,6 @@
 {
   "always-update": true,
+  "plugins": [ "node-workspace" ],
   "changelog-sections": [
     { "type": "feat", "section": "Features" },
     { "type": "fix", "section": "Fixes" },
@@ -8,6 +9,6 @@
   ],
   "packages": {
     "apps/web": { "release-type": "node", "component": "web" },
-    "packages/ui": { "release-type": "node", "component": "ui", "plugins": [ "node-workspace" ], "skip-github-release": true, "skip-github-pull-request": true, "skip-changelog": true}
+    "packages/ui": { "release-type": "node", "component": "ui", "skip-github-release": true, "skip-github-pull-request": true, "skip-changelog": true}
   }
 }
