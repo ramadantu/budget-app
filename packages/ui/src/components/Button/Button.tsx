@@ -18,7 +18,6 @@ function Button({ name, icon, onClick, bg, bPad, color, bRad }: ButtonProps) {
         padding: bPad,
         borderRadius: bRad,
         color: color,
-        width: name ? 'auto' : 'fit-content',
       }}
       onClick={onClick}
     >
