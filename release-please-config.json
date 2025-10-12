@@ -1,6 +1,7 @@
 {
   "always-update": true,
   "plugins": ["node-workspace"],
+  "always-link-local": false,
   "changelog-sections": [
     { "type": "feat", "section": "Features" },
     { "type": "fix", "section": "Fixes" },
