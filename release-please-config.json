@@ -11,6 +11,10 @@
     { "type": "style", "hidden": true }
   ],
   "packages": {
-    "apps/web": {}
+    "apps/web": {},
+    "packages/ui": { 
+      "skip-github-release": true,
+      "plugins": ["node-workspace"] 
+    }
   }
 }
