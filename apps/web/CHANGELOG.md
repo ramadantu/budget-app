@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/ramadantu/budget-app/compare/web-v1.1.0...web-v1.1.1) (2025-10-12)
+
+
+### Chores
+
+* change package to private ([87bbb11](https://github.com/ramadantu/budget-app/commit/87bbb11b1919d0fee939fd5d540a2abaeae5239d))
+
 ## [1.1.0](https://github.com/ramadantu/budget-app/compare/web-v1.0.0...web-v1.1.0) (2025-10-12)
 
 
