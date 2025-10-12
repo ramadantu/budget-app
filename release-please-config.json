@@ -1,0 +1,8 @@
+{
+    "changelog-sections": [
+        { "type": "feat", "section": "Features" },
+        { "type": "fix", "section": "Fixes" },
+        { "type": "chore", "section": "Chores" },
+        { "type": "docs", "section": "Docs" }
+    ]
+}
