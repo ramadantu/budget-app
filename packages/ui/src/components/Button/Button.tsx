@@ -14,7 +14,7 @@ function Button({ name, icon, onClick, bg, bPad, color, bRad }: ButtonProps) {
   return (
     <ButtonStyled
       style={{
-        background: 'red',
+        background: bg,
         padding: bPad,
         borderRadius: bRad,
         color: color,
