@@ -5,6 +5,17 @@
 
 ### Chores
 
+* **main:** release web 1.1.5 ([#18](https://github.com/ramadantu/budget-app/issues/18)) ([cb3eebb](https://github.com/ramadantu/budget-app/commit/cb3eebbbc5796ee070f4ab4cfc597fe732219400))
+* **main:** release web 1.1.5 ([#19](https://github.com/ramadantu/budget-app/issues/19)) ([cba1f2c](https://github.com/ramadantu/budget-app/commit/cba1f2c627bfd0243676ad2a0b555bc12b5331f7))
+* trigger release ([7e985e1](https://github.com/ramadantu/budget-app/commit/7e985e145d750c0a992aff74b6cd54529d5fdd3f))
+* trigger Web release ([f7f952f](https://github.com/ramadantu/budget-app/commit/f7f952fc24bbccca3b99c9df46d73505d6f40509))
+* undo release ([8bc819c](https://github.com/ramadantu/budget-app/commit/8bc819c83effb777603916c1c0e2b86fb63f6a91))
+
+## [1.1.5](https://github.com/ramadantu/budget-app/compare/web-v1.1.4...web-v1.1.5) (2025-10-12)
+
+
+### Chores
+
 * trigger Web release ([f7f952f](https://github.com/ramadantu/budget-app/commit/f7f952fc24bbccca3b99c9df46d73505d6f40509))
 
 ## [1.1.4](https://github.com/ramadantu/budget-app/compare/web-v1.1.3...web-v1.1.4) (2025-10-12)
