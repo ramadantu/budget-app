@@ -1,0 +1,16 @@
+{
+  "always-update": true,
+  "changelog-sections": [
+    { "type": "feat", "section": "Features" },
+    { "type": "fix", "section": "Fixes" },
+    { "type": "refactor", "section": "Refactors" },
+    { "type": "test", "section": "Tests" },
+    { "type": "chore", "section": "Chores" },
+    { "type": "docs", "section": "Docs" },
+    { "type": "perf", "section": "Performance" },
+    { "type": "style", "hidden": true }
+  ],
+  "packages": {
+    "apps/web": {}
+  }
+}
