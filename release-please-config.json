@@ -1,6 +1,5 @@
 {
   "always-update": true,
-  "plugins": ["node-workspace"],
   "changelog-sections": [
     { "type": "feat", "section": "Features" },
     { "type": "fix", "section": "Fixes" },
@@ -12,9 +11,6 @@
     { "type": "style", "hidden": true }
   ],
   "packages": {
-    "apps/web": {},
-    "packages/ui": { 
-      "skip-github-release": true
-    }
+    "apps/web": {}
   }
 }
