@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1.4](https://github.com/ramadantu/budget-app/compare/web-v1.1.3...web-v1.1.4) (2025-10-12)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @budget-app/ui bumped from 1.0.1 to 1.0.2
+
 ## [1.1.3](https://github.com/ramadantu/budget-app/compare/web-v1.1.2...web-v1.1.3) (2025-10-12)
 
 
