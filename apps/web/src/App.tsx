@@ -2,12 +2,7 @@ import styled from 'styled-components'
 import { useState, useMemo } from 'react'
 // @ts-ignore
 import bg from './img/bg.png'
-import { MainLayout } from './Components/Layout/StyledMain'
-import Orb from './Components/Orb/Orb'
-import Nav from './Components/Nav/Nav'
-import Dashboard from './Components/Dashboard/Dashboard'
-import Incomes from './Components/Incomes/Incomes'
-import Expenses from './Components/Expenses/Expenses'
+import { Dashboard, Expenses, Incomes, MainLayout, Nav, Orb } from '@budget-app/ui'
 
 const AppStyled = styled.div`
   height: 100vh;

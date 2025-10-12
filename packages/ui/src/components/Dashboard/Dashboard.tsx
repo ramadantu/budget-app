@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { Dashboard as DashboardStyled } from './StyledDashboard'
 import { useGlobalContext } from '../../context/globalContext'
 import RecentHistory from '../History/RecentHistory'
-import { InnerLayout } from '../Layout/StyledInner'
+import InnerLayout from '../Layout/StyledInner'
 import { dollar } from '../../utils/Icons'
 import Chart from '../Chart/Chart'
 
