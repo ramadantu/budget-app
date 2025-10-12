@@ -8,3 +8,5 @@ services:
       - KEYCLOAK_ADMIN_PASSWORD=Pa55w0rd
     ports:
       - "8080:8080"
+
+# 
