@@ -13,6 +13,6 @@
   ],
   "packages": {
     "apps/web": {},
-    "packages/ui": { "skip-github-release": true }
+    "packages/ui": { "skip-github-release": true, "skip-github-pull-request": true }
   }
 }
