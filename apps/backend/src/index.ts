@@ -15,7 +15,7 @@ app.use('/api/v1/', transactionRoutes)
 const server = () => {
   MongoDB()
   app.listen(port, () => {
-    console.log(`Server is running on port ${port}`)
+    console.info(`Server is running on port ${port}`)
   })
 }
 
