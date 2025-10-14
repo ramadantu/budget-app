@@ -1,5 +1,6 @@
 {
   "always-update": true,
+  "separate-pull-requests": true,
   "changelog-sections": [
     { "type": "feat", "section": "Features" },
     { "type": "fix", "section": "Fixes" },
@@ -11,7 +12,7 @@
     { "type": "style", "hidden": true }
   ],
   "packages": {
-    "apps/web": { "release-type": "node", "component": "web", "separate-pull-requests": true },
-    "apps/backend": { "release-type": "node", "component": "backend", "separate-pull-requests": true }
+    "apps/web": { "release-type": "node", "component": "web" },
+    "apps/backend": { "release-type": "node", "component": "backend"}
   }
 }
