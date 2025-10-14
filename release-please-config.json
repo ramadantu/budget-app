@@ -7,7 +7,7 @@
     { "type": "docs", "section": "Docs" }
   ],
   "packages": {
-    "apps/web": { "release-type": "node", "component": "web" },
-    "services/backend": { "release-type": "node", "component": "backend" }
+    "apps/web": { "release-type": "node", "component": "web", "separate-pull-requests": true },
+    "services/backend": { "release-type": "node", "component": "backend", "separate-pull-requests": true }
   }
 }
