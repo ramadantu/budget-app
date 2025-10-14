@@ -10,10 +10,10 @@
     "services/*"
   ],
   "scripts": {
-    "start:backend": "yarn workspace backend start",
-    "start:web": "yarn workspace web start",
+    "start:backend": "yarn workspace @budget-app/backend start",
+    "start:web": "yarn workspace @budget-app/web start",
     "start": "concurrently \"yarn start:backend\" \"yarn start:web\"",
-    "build:backend": "yarn workspace backend compile",
+    "compile:backend": "yarn workspace @budget-app/backend compile",
     "lint": "eslint . --ext .js,.ts,.jsx,.tsx --fix",
     "format": "prettier --write \"**/*.{js,ts,jsx,tsx,json,css,md}\""
   },
