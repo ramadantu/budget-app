@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/ramadantu/budget-app/compare/backend-v1.0.0...backend-v1.0.1) (2025-10-14)
+
+
+### Chores
+
+* change monorepo structure ([cce2a12](https://github.com/ramadantu/budget-app/commit/cce2a122dd8e03b178157da9d69435f77a2ecac5))
+
 ## 1.0.0 (2025-10-14)
 
 
