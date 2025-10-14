@@ -11,6 +11,7 @@
     { "type": "style", "hidden": true }
   ],
   "packages": {
-    "apps/web": {}
+    "apps/web": { "release-type": "node", "component": "web", "separate-pull-requests": true },
+    "apps/backend": { "release-type": "node", "component": "backend", "separate-pull-requests": true }
   }
 }
