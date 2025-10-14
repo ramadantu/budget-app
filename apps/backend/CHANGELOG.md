@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/ramadantu/budget-app/compare/backend-v1.0.1...backend-v1.0.2) (2025-10-14)
+
+
+### Fixes
+
+* print info ([9734009](https://github.com/ramadantu/budget-app/commit/9734009ec7f9a631e695794022c2e14cde814a56))
+
 ## [1.0.1](https://github.com/ramadantu/budget-app/compare/backend-v1.0.0...backend-v1.0.1) (2025-10-14)
 
 
