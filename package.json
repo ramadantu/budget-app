@@ -1,10 +1,10 @@
 {
+  "private": true,
   "name": "budget-app",
   "version": "1.0.0",
   "repository": "https://github.com/ramadantu/budget-app.git",
   "author": "Ramadan Velisha <ramadan.velisha@artwarebg.com>",
   "license": "MIT",
-  "private": true,
   "workspaces": [
     "apps/*",
     "services/*"
