@@ -1,22 +1,34 @@
 import { StrictMode } from 'react'
-import ReactDOM from 'react-dom/client'
+import { createRoot } from 'react-dom/client'
+import { ReactKeycloakProvider } from '@react-keycloak/web'
 import App from './App'
 import { GlobalProvider } from './context/globalContext'
 import { GlobalStyle } from './styles/GlobalStyle'
-import KeycloakProvider from './KeycloakProvider'
-const rootElement = document.getElementById('root')
+import keycloak from './utils/keycloak'
 
-if (!rootElement) {
-  throw new Error('Root element not found')
+const eventLogger: (event: any, error: any) => void = (event, error) => {
+  console.log('keycloak event', event, error)
 }
 
-ReactDOM.createRoot(rootElement).render(
-  <KeycloakProvider>
-    <StrictMode>
+const tokenLogger: (token: any) => void = (token) => {
+  console.log('keycloak token', token)
+  localStorage.setItem('token', JSON.stringify(token))
+}
+
+const root = createRoot(document.getElementById('root')!)
+
+root.render(
+  <StrictMode>
+    <ReactKeycloakProvider
+      initOptions={{ onLoad: 'login-required' }}
+      authClient={keycloak}
+      onEvent={eventLogger}
+      onTokens={tokenLogger}
+    >
       <GlobalStyle />
       <GlobalProvider>
         <App />
       </GlobalProvider>
-    </StrictMode>
-  </KeycloakProvider>,
+    </ReactKeycloakProvider>
+  </StrictMode>,
 )
