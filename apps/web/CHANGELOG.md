@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/ramadantu/budget-app/compare/web-v1.1.0...web-v1.1.1) (2025-10-15)
+
+
+### Fixes
+
+* use ReactKeycloakProvider ([8549574](https://github.com/ramadantu/budget-app/commit/85495747379ecb5119a34fb9cff3c55a831fb2ed))
+
 ## [1.1.0](https://github.com/ramadantu/budget-app/compare/web-v1.0.0...web-v1.1.0) (2025-10-14)
 
 
