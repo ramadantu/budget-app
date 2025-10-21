@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+
+(
+    cd "$SCRIPT_DIR"/..
+    docker exec keycloak /opt/keycloak/bin/kc.sh export --dir /opt/keycloak/data/import/ --realm budget-app --users realm_file
+)
