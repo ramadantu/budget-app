@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "compile": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",

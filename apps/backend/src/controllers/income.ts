@@ -21,13 +21,13 @@ export const addIncome = async (req: Request, res: Response) => {
 
   try {
     await income.save()
-    res.status(200).json({ message: 'Income Added' })
+    return res.status(200).json({ message: 'Income Added' })
   } catch (error: any) {
-    res.status(500).json({ message: 'Server Error', error: error.message })
+    return res.status(500).json({ message: 'Server Error', error: error.message })
   }
 }
 
-export const getIncomes = async (req: Request, res: Response) => {
+export const getIncomes = async (_req: Request, res: Response) => {
   try {
     const incomes = await IncomeModel.find().sort({ createdAt: -1 })
     res.status(200).json(incomes)

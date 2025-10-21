@@ -2,7 +2,7 @@
 import Keycloak from 'keycloak-js';
 
 const keycloak: Keycloak = new Keycloak({
-  url: 'http://localhost:8080',
+    url: 'http://localhost:8080',
     realm: 'budget-app',
     clientId: 'budget-app',
 });

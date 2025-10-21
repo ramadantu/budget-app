@@ -21,13 +21,13 @@ export const addExpense = async (req: Request, res: Response) => {
 
   try {
     await expense.save()
-    res.status(200).json({ message: 'Expense Added' })
+    return res.status(200).json({ message: 'Expense Added' })
   } catch (error: any) {
-    res.status(500).json({ message: 'Server Error', error: error.message })
+    return res.status(500).json({ message: 'Server Error', error: error.message })
   }
 }
 
-export const getExpenses = async (req: Request, res: Response) => {
+export const getExpenses = async (_req: Request, res: Response) => {
   try {
     const expenses = await ExpenseModel.find().sort({ createdAt: -1 })
     res.status(200).json(expenses)

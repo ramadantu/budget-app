@@ -9,7 +9,7 @@ function Orb() {
             transform: translate(0, 0);
         }
         50%{
-            transform: translate(${width}px, ${height / 2}px);
+            transform: translate(${width}px, ${(height ?? 0) / 2}px);
         }
         100%{
             transform: translate(0, 0);
