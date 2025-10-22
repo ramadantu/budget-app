@@ -9,13 +9,15 @@
     "apps/*"
   ],
   "scripts": {
+    "backup:containers": "bash ./containers/scripts/backup",
+    "start:keycloak": "docker-compose -f ./services/keycloak/docker-compose.yml up",
     "start:backend": "yarn workspace @budget-app/backend start",
     "start:web": "yarn workspace @budget-app/web start",
     "start": "concurrently \"yarn start:backend\" \"yarn start:web\"",
-    "start:keycloak": "docker-compose -f ./services/keycloak/docker-compose.yml up",
     "compile:backend": "yarn workspace @budget-app/backend compile",
     "compile:web": "yarn workspace @budget-app/web compile",
     "compile": "yarn compile:backend && yarn compile:web",
+    "build:keycloak": "docker build -t keycloak-curl ./images/keycloak",
     "lint": "eslint . --ext .js,.ts,.jsx,.tsx --fix",
     "format": "prettier --write \"**/*.{js,ts,jsx,tsx,json,css,md}\""
   },
