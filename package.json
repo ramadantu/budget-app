@@ -10,6 +10,9 @@
   ],
   "scripts": {
     "backup:containers": "bash ./containers/scripts/backup",
+    "prisma:migrate ": "yarn workspace @budget-app/backend prisma migrate dev",
+    "prisma:generate": "yarn workspace @budget-app/backend prisma generate",
+    "prisma:studio": "yarn workspace @budget-app/backend prisma studio",
     "start:keycloak": "docker-compose -f ./services/keycloak/docker-compose.yml up",
     "start:backend": "yarn workspace @budget-app/backend start",
     "start:web": "yarn workspace @budget-app/web start",
