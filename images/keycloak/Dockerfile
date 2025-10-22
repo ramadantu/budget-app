@@ -1,4 +1,4 @@
-ARG KEYCLOAK_VERSION=22.0.3
+ARG KEYCLOAK_VERSION=26.3.3
 
 FROM quay.io/keycloak/keycloak:$KEYCLOAK_VERSION AS builder
 
@@ -18,7 +18,7 @@ COPY --from=builder /opt/keycloak/ /opt/keycloak/
 COPY --from=ubi-micro-build /mnt/rootfs /
 
 # https://www.keycloak.org/server/all-config
-ENV KC_DB=mongo
+ENV KC_DB=postgres
 ENV KC_DB_URL_HOST=postgres
 ENV KC_DB_DATABASE=keycloak
 ENV KC_DB_SCHEMA=public
@@ -33,3 +33,5 @@ ENV KC_SPI_CONNECTIONS_JPA_LEGACY_MIGRATION_STRATEGY=update
 ENV KC_BOOTSTRAP_ADMIN_USERNAME=admin
 ENV KC_BOOTSTRAP_ADMIN_PASSWORD=Pa55w0rd
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
+
+CMD ["tail", "-f", "/dev/null"]

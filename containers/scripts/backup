@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+DOCKER_COMPOSE_FILE="$SCRIPT_DIR/../docker-compose.yml"
+
+get_secret() {
+    local secret_name="$1"
+    local compose_file="$2"
+    yq "$secret_name" "$compose_file"
+}
+
+# db_password="$(get_secret .services.backend.environment.DB_PASSWORD "$DOCKER_COMPOSE_APPS_FILE")"
+pg_password="$(get_secret .services.postgres.environment.POSTGRES_PASSWORD "$DOCKER_COMPOSE_FILE")"
+
+cat <<EOL > ~/.pgpass
+# hostname:port:database:username:password
+localhost:5432:postgres:postgres:$pg_password
+localhost:5432:keycloak:postgres:$pg_password
+# localhost:5432:budget-app:postgres:$pg_password
+# localhost:5432:budget-app:budget-app:$db_password
+EOL
+
+chmod 600 ~/.pgpass
+
+(
+  cd "$SCRIPT_DIR"/..
+
+  docker exec keycloak /opt/keycloak/bin/kc.sh export --dir /opt/keycloak/data/import/ --realm budget-app --users realm_file
+
+  pg_dumpall --roles-only -U postgres -h localhost > $SCRIPT_DIR/../backup/postgres/docker-entrypoint-initdb.d/01_roles.sql
+  if [[ $OSTYPE == 'darwin'* ]]; then
+    sed -i'' -e 's/CREATE ROLE postgres;/-- CREATE ROLE postgres;/g' $SCRIPT_DIR/../backup/postgres/docker-entrypoint-initdb.d/01_roles.sql
+    rm $SCRIPT_DIR/../backup/postgres/docker-entrypoint-initdb.d/01_roles.sql-e
+  else
+    sed -i 's/CREATE ROLE postgres;/-- CREATE ROLE postgres;/g' $SCRIPT_DIR/../backup/postgres/docker-entrypoint-initdb.d/01_roles.sql
+  fi
+  # pg_dump -U budget-app -h localhost --create budget-app > $SCRIPT_DIR/../backup/docker-entrypoint-initdb.d/04_budget_app.sql
+)
