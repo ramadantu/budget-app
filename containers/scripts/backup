@@ -7,18 +7,18 @@ DOCKER_COMPOSE_FILE="$SCRIPT_DIR/../docker-compose.yml"
 
 get_secret() {
     local secret_name="$1"
-    local compose_file="$2"
-    yq "$secret_name" "$compose_file"
+    local file="$2"
+    yq "$secret_name" "$file"
 }
 
 # db_password="$(get_secret .services.backend.environment.DB_PASSWORD "$DOCKER_COMPOSE_APPS_FILE")"
-pg_password="$(get_secret .services.postgres.environment.POSTGRES_PASSWORD "$DOCKER_COMPOSE_FILE")"
+postgres_password="$(get_secret .services.postgres.environment.POSTGRES_PASSWORD "$DOCKER_COMPOSE_FILE")"
 
 cat <<EOL > ~/.pgpass
 # hostname:port:database:username:password
-localhost:5432:postgres:postgres:$pg_password
-localhost:5432:keycloak:postgres:$pg_password
-# localhost:5432:budget-app:postgres:$pg_password
+localhost:5432:postgres:postgres:$postgres_password
+localhost:5432:keycloak:postgres:$postgres_password
+# localhost:5432:budget-app:postgres:$postgres_password
 # localhost:5432:budget-app:budget-app:$db_password
 EOL
 

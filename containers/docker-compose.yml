@@ -27,6 +27,9 @@ services:
       - keycloak_import:/opt/keycloak/data/import
       - ./backup/keycloak/budget-app-realm.json:/opt/keycloak/data/import/budget-app-realm.json
     command: start --optimized --import-realm
+    environment:
+      - KC_DB_PASSWORD=password
+      - KC_BOOTSTRAP_ADMIN_PASSWORD=Pa55w0rd
     ports:
       - "8080:8080"
     healthcheck:
