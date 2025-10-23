@@ -383,7 +383,7 @@
     "firstName" : "Ramadan",
     "lastName" : "Velisha",
     "email" : "ramadan.velisha@gmail.com",
-    "emailVerified" : false,
+    "emailVerified" : true,
     "enabled" : true,
     "createdTimestamp" : 1761179995185,
     "totp" : false,
