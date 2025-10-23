@@ -17,7 +17,7 @@ function HistoryList({ list }: HistoryListProps) {
     <div className="incomes">
       {list.map(({ _id: id, title, amount, date, category, description, type }) => {
         return (
-          <StyledListItem indicator={'var(--color-green)'}>
+          <StyledListItem $background={'var(--color-green)'} key={id}>
             <div className="icon">
               {type === 'expense'
                 ? getExpensesCategoriesIcon(category)

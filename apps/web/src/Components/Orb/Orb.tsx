@@ -1,10 +1,13 @@
 import styled, { keyframes } from 'styled-components'
 import { useWindowSize } from '../../utils/useWindowSize'
 
-function Orb() {
-  const { width, height } = useWindowSize()
+interface OrbStyledProps {
+  width?: number | undefined
+  height?: number | undefined
+}
 
-  const moveOrb = keyframes`
+const moveOrb = ({ width, height }: OrbStyledProps) =>
+  keyframes`
         0%{
             transform: translate(0, 0);
         }
@@ -16,19 +19,22 @@ function Orb() {
         }
     `
 
-  const OrbStyled = styled.div`
-    width: 70vh;
-    height: 70vh;
-    position: absolute;
-    border-radius: 50%;
-    margin-left: -37vh;
-    margin-top: -37vh;
-    background: linear-gradient(180deg, #f56692 0%, #f2994a 100%);
-    filter: blur(400px);
-    animation: ${moveOrb} 15s alternate linear infinite;
-  `
+const OrbStyled = styled.div<OrbStyledProps>`
+  width: 70vh;
+  height: 70vh;
+  position: absolute;
+  border-radius: 50%;
+  margin-left: -37vh;
+  margin-top: -37vh;
+  background: linear-gradient(180deg, #f56692 0%, #f2994a 100%);
+  filter: blur(400px);
+  animation: ${(props) => moveOrb(props)} 15s alternate linear infinite;
+`
 
-  return <OrbStyled />
+function Orb() {
+  const { width, height } = useWindowSize()
+
+  return <OrbStyled width={width} height={height} />
 }
 
 export default Orb

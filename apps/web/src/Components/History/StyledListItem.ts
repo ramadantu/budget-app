@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ListItem = styled.div<{ indicator: string }>`
+export const ListItem = styled.div<{ $background: string }>`
   background: #fcf6f9;
   border: 2px solid #ffffff;
   box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
@@ -44,7 +44,7 @@ export const ListItem = styled.div<{ indicator: string }>`
         width: 0.8rem;
         height: 0.8rem;
         border-radius: 50%;
-        background: ${(props) => props.indicator};
+        background: ${({ $background }) => $background};
       }
     }
 
