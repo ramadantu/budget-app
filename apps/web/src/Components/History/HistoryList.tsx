@@ -7,19 +7,20 @@ import { getExpensesCategoriesIcon } from '../Expenses/ExpensesCategories'
 import { getIncomeCategoriesIcon } from '../Incomes/IncomeCategories'
 
 interface HistoryListProps {
+  type: 'incomes' | 'expenses'
   list: any[]
 }
 
-function HistoryList({ list }: HistoryListProps) {
+function HistoryList({ list, type }: HistoryListProps) {
   const ctxResponse = useGlobalContext()
 
   return (
     <div className="incomes">
-      {list.map(({ _id: id, title, amount, date, category, description, type }) => {
+      {list.map(({ id, title, amount, date, category, description }) => {
         return (
           <StyledListItem $background={'var(--color-green)'} key={id}>
             <div className="icon">
-              {type === 'expense'
+              {type === 'expenses'
                 ? getExpensesCategoriesIcon(category)
                 : getIncomeCategoriesIcon(category)}
             </div>
@@ -46,7 +47,7 @@ function HistoryList({ list }: HistoryListProps) {
                     bg={'var(--primary-color'}
                     color={'#fff'}
                     onClick={() =>
-                      type === 'expense'
+                      type === 'expenses'
                         ? ctxResponse?.deleteExpense(id)
                         : ctxResponse?.deleteIncome(id)
                     }

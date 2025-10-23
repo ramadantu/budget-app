@@ -22,7 +22,7 @@ function Expenses() {
           <div className="form-container">
             <Form type={'Expenses'} />
           </div>
-          <HistoryList list={ctxResponse?.expenses ?? []} />
+          <HistoryList list={ctxResponse?.expenses ?? []} type={'expenses'} />
         </div>
       </InnerLayout>
     </ExpensesStyled>

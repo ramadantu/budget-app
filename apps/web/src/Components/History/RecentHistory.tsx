@@ -10,12 +10,12 @@ function RecentHistory() {
     <RecentHistoryStyled>
       <h2>Recent History</h2>
       {history?.map((item) => {
-        const { _id, title, amount, type } = item
+        const { id, title, amount, type } = item
         return (
-          <div key={_id} className="history-item">
+          <div key={id} className="history-item">
             <p
               style={{
-                color: type === 'expense' ? 'red' : 'var(--color-green)',
+                color: type === 'expenses' ? 'red' : 'var(--color-green)',
               }}
             >
               {title}
@@ -23,10 +23,12 @@ function RecentHistory() {
 
             <p
               style={{
-                color: type === 'expense' ? 'red' : 'var(--color-green)',
+                color: type === 'expenses' ? 'red' : 'var(--color-green)',
               }}
             >
-              {type === 'expense' ? `-${amount <= 0 ? 0 : amount}` : `+${amount <= 0 ? 0 : amount}`}
+              {type === 'expenses'
+                ? `-${amount <= 0 ? 0 : amount}`
+                : `+${amount <= 0 ? 0 : amount}`}
             </p>
           </div>
         )

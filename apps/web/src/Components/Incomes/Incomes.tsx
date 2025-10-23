@@ -22,7 +22,7 @@ function Incomes() {
           <div className="form-container">
             <Form type={'Incomes'} />
           </div>
-          <HistoryList list={ctxResponse?.incomes ?? []} />
+          <HistoryList list={ctxResponse?.incomes ?? []} type={'incomes'} />
         </div>
       </InnerLayout>
     </IncomeStyled>

@@ -29,7 +29,7 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 
   const getIncomes = async () => {
     const response = await axios.get(`${BASE_URL}get-incomes`)
-    setIncomes(response.data)
+    setIncomes(response.data.map((income: any) => ({ ...income, type: 'incomes' })))
   }
 
   const addIncome = async (income: any) => {
@@ -55,7 +55,7 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 
   const getExpenses = async () => {
     const response = await axios.get(`${BASE_URL}get-expenses`)
-    setExpenses(response.data)
+    setExpenses(response.data.map((expense: any) => ({ ...expense, type: 'expenses' })))
   }
 
   const addExpense = async (income: any) => {
