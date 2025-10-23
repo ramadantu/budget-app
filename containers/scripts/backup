@@ -18,8 +18,8 @@ cat <<EOL > ~/.pgpass
 # hostname:port:database:username:password
 localhost:5432:postgres:postgres:$postgres_password
 localhost:5432:keycloak:postgres:$postgres_password
-# localhost:5432:budget-app:postgres:$postgres_password
-# localhost:5432:budget-app:budget-app:$db_password
+# localhost:5432:application:postgres:$postgres_password
+# localhost:5432:application:application:$db_password
 EOL
 
 chmod 600 ~/.pgpass
@@ -36,5 +36,5 @@ chmod 600 ~/.pgpass
   else
     sed -i 's/CREATE ROLE postgres;/-- CREATE ROLE postgres;/g' $SCRIPT_DIR/../backup/postgres/docker-entrypoint-initdb.d/01_roles.sql
   fi
-  # pg_dump -U budget-app -h localhost --create budget-app > $SCRIPT_DIR/../backup/docker-entrypoint-initdb.d/04_budget_app.sql
+  # pg_dump -U application -h localhost --create application > $SCRIPT_DIR/../backup/docker-entrypoint-initdb.d/04_budget_app.sql
 )

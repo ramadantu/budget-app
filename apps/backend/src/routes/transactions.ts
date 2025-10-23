@@ -1,6 +1,6 @@
 import { Router } from 'express'
-import { addIncome, deleteIncome, getIncomes } from '../controllers/income'
-import { addExpense, deleteExpense, getExpenses } from '../controllers/expense'
+import { addIncome, deleteIncome, getIncomes } from '../controllers/incomes'
+import { addExpense, deleteExpense, getExpenses } from '../controllers/expenses'
 
 const router = Router()
 
