@@ -1794,6 +1794,11 @@
     schema-utils "^4.2.0"
     source-map "^0.7.3"
 
+"@prisma/client@^6.18.0":
+  version "6.18.0"
+  resolved "https://registry.npmjs.org/@prisma/client/-/client-6.18.0.tgz#95f0efe03b5827d9bf5c80b6b7298e46094b5fbf"
+  integrity sha512-jnL2I9gDnPnw4A+4h5SuNn8Gc+1mL1Z79U/3I9eE2gbxJG1oSA+62ByPW4xkeDgwE0fqMzzpAZ7IHxYnLZ4iQA==
+
 "@prisma/config@6.18.0":
   version "6.18.0"
   resolved "https://registry.npmjs.org/@prisma/config/-/config-6.18.0.tgz#3f8f2eca12ceb41f81e34b186b3aa2619959086c"
