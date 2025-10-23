@@ -1,4 +1,4 @@
-ARG KEYCLOAK_VERSION=26.3.3
+ARG KEYCLOAK_VERSION=26.4.1
 
 FROM quay.io/keycloak/keycloak:$KEYCLOAK_VERSION AS builder
 
@@ -30,6 +30,5 @@ ENV KC_LOG_CONSOLE_COLOR=true
 ENV KC_PROXY=edge
 ENV KC_SPI_CONNECTIONS_JPA_LEGACY_MIGRATION_STRATEGY=update
 ENV KC_BOOTSTRAP_ADMIN_USERNAME=admin
-ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
 
-CMD ["tail", "-f", "/dev/null"]
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
