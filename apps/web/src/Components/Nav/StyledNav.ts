@@ -74,4 +74,8 @@ export const Nav = styled.nav`
       border-radius: 0 10px 10px 0;
     }
   }
+
+  .bottom-nav {
+    cursor: pointer;
+  }
 `

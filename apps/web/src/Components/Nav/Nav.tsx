@@ -3,6 +3,7 @@ import { Nav as NavStyled } from './StyledNav'
 import avatar from '../../img/avatar.png'
 import { signout } from '../../utils/Icons'
 import { menuItems } from '../../utils/menuItems'
+import { LogOutUser } from '../../utils/keycloak'
 
 interface NavProps {
   active: number
@@ -33,7 +34,7 @@ function Nav({ active, setActive }: NavProps) {
           )
         })}
       </ul>
-      <div className="bottom-nav">
+      <div className="bottom-nav" onClick={LogOutUser}>
         <li>{signout} Sign Out</li>
       </div>
     </NavStyled>

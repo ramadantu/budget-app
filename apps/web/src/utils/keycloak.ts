@@ -7,4 +7,10 @@ const keycloak: Keycloak = new Keycloak({
     clientId: 'budget-app',
 });
 
+export const LogOutUser = () => {
+    keycloak.logout({
+        redirectUri: window.location.origin,
+    });
+}
+
 export default keycloak;
