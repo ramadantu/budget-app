@@ -1,7 +1,7 @@
 import { ListItem as StyledListItem } from './StyledListItem'
 import { useGlobalContext } from '../../context/globalContext'
 import { dateFormat } from '../../utils/dateFormat'
-import { calender, comment, dollar, trash } from '../../utils/Icons'
+import { calendar, comment, dollar, trash } from '../../utils/Icons'
 import Button from '../Button/Button'
 import { getExpensesCategoriesIcon } from '../Expenses/ExpensesCategories'
 import { getIncomeCategoriesIcon } from '../Incomes/IncomeCategories'
@@ -32,7 +32,7 @@ function HistoryList({ list, type }: HistoryListProps) {
                     {dollar} {amount}
                   </p>
                   <p>
-                    {calender} {dateFormat(date)}
+                    {calendar} {dateFormat(date)}
                   </p>
                   <p>
                     {comment}

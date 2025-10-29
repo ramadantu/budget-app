@@ -1,6 +1,4 @@
 import { Nav as NavStyled } from './StyledNav'
-// @ts-ignore
-import avatar from '../../img/avatar.png'
 import { signout } from '../../utils/Icons'
 import { menuItems } from '../../utils/menuItems'
 import { LogOutUser } from '../../utils/keycloak'
@@ -14,7 +12,7 @@ function Nav({ active, setActive }: NavProps) {
   return (
     <NavStyled>
       <div className="user-con">
-        <img src={avatar} alt="" />
+        <img src={'../../img/avatar.png'} alt="" />
         <div className="text">
           <h2>Ramadan</h2>
           <p>Your Budget</p>
