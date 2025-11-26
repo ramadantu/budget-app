@@ -1,7 +1,7 @@
 import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from 'react'
 import axios from 'axios'
 
-const BASE_URL = process.env.BACKEND_URL
+const BASE_URL = 'http://localhost:5001/api/v1/'
 
 interface GlobalContextProps {
   addIncome: (income: any) => Promise<void>
