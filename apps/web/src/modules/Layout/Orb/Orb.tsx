@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components'
-import { useWindowSize } from '../../utils/useWindowSize'
+import { useWindowSize } from '../../../utils/useWindowSize'
 
 interface OrbStyledProps {
   width?: number | undefined

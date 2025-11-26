@@ -1,14 +1,17 @@
 import { Nav as NavStyled } from './StyledNav'
 import { signout } from '../../utils/Icons'
 import { menuItems } from '../../utils/menuItems'
-import { LogOutUser } from '../../utils/keycloak'
+import { useRouter } from 'next/router'
+import { signOut } from 'next-auth/react'
 
 interface NavProps {
-  active: number
-  setActive: React.Dispatch<React.SetStateAction<number>>
+  active?: number
+  setActive?: React.Dispatch<React.SetStateAction<number>>
 }
 
 function Nav({ active, setActive }: NavProps) {
+  const router = useRouter()
+
   return (
     <NavStyled>
       <div className="user-con">
@@ -23,7 +26,10 @@ function Nav({ active, setActive }: NavProps) {
           return (
             <li
               key={item.id}
-              onClick={() => setActive(item.id)}
+              onClick={() => {
+                setActive && setActive(item.id)
+                router.push(item.link)
+              }}
               className={active === item.id ? 'active' : ''}
             >
               {item.icon}
@@ -32,7 +38,12 @@ function Nav({ active, setActive }: NavProps) {
           )
         })}
       </ul>
-      <div className="bottom-nav" onClick={LogOutUser}>
+      <div
+        className="bottom-nav"
+        onClick={() => {
+          signOut()
+        }}
+      >
         <li>{signout} Sign Out</li>
       </div>
     </NavStyled>
