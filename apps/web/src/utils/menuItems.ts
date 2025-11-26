@@ -5,7 +5,7 @@ export const menuItems = [
     id: 1,
     title: 'Dashboard',
     icon: dashboard,
-    link: '/dashboard',
+    link: '/',
   },
   {
     id: 2,
@@ -23,6 +23,6 @@ export const menuItems = [
     id: 4,
     title: 'Expenses',
     icon: expenses,
-    link: '/expanses',
+    link: '/expenses',
   },
 ]
