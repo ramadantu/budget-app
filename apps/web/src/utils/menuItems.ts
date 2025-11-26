@@ -1,3 +1,4 @@
+import { Route } from '../constants'
 import { dashboard, expenses, transactions, trend } from './Icons'
 
 export const menuItems = [
@@ -5,24 +6,24 @@ export const menuItems = [
     id: 1,
     title: 'Dashboard',
     icon: dashboard,
-    link: '/',
+    link: Route.Dashboard,
   },
   {
     id: 2,
     title: 'View Transactions',
     icon: transactions,
-    link: '/transactions',
+    link: Route.Transactions,
   },
   {
     id: 3,
     title: 'Incomes',
     icon: trend,
-    link: '/incomes',
+    link: Route.Incomes,
   },
   {
     id: 4,
     title: 'Expenses',
     icon: expenses,
-    link: '/expenses',
+    link: Route.Expenses,
   },
 ]
