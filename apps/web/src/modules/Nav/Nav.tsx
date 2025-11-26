@@ -1,15 +1,16 @@
-import { Nav as NavStyled } from './StyledNav'
+import { signOut } from 'next-auth/react'
+import { useRouter } from 'next/router'
+
 import { signout } from '../../utils/Icons'
 import { menuItems } from '../../utils/menuItems'
-import { useRouter } from 'next/router'
-import { signOut } from 'next-auth/react'
+
+import { Nav as NavStyled } from './StyledNav'
 
 interface NavProps {
-  active?: number
-  setActive?: React.Dispatch<React.SetStateAction<number>>
+  username?: string | null | undefined
 }
 
-function Nav({ active, setActive }: NavProps) {
+function Nav({ username }: NavProps) {
   const router = useRouter()
 
   return (
@@ -17,7 +18,7 @@ function Nav({ active, setActive }: NavProps) {
       <div className="user-con">
         <img src={'../../img/avatar.png'} alt="" />
         <div className="text">
-          <h2>Ramadan</h2>
+          <h2>{username}</h2>
           <p>Your Budget</p>
         </div>
       </div>
@@ -27,10 +28,9 @@ function Nav({ active, setActive }: NavProps) {
             <li
               key={item.id}
               onClick={() => {
-                setActive && setActive(item.id)
                 router.push(item.link)
               }}
-              className={active === item.id ? 'active' : ''}
+              className={router.pathname === item.link ? 'active' : ''}
             >
               {item.icon}
               <span>{item.title}</span>

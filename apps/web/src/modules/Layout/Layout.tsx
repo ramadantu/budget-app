@@ -1,12 +1,14 @@
+import { useMemo } from 'react'
+import { SessionProvider, useSession } from 'next-auth/react'
 import styled from 'styled-components'
+
 import Nav from '../Nav'
 import { GlobalProvider } from '../../context/globalContext'
 import { GlobalStyle } from '../../styles/GlobalStyle'
-import { useMemo } from 'react'
-import Orb from './Orb'
-import { SessionProvider, useSession } from 'next-auth/react'
 
-export const StyledLayout = styled.div`
+import Orb from './Orb'
+
+const StyledLayout = styled.div`
   padding: 2rem;
   height: 100%;
   display: flex;
@@ -31,7 +33,7 @@ const AppStyled = styled.div`
 `
 
 function Layout({ children }: { children?: React.ReactNode }) {
-  useSession({ required: true })
+  const { data } = useSession({ required: true })
 
   const OrbMemoized = useMemo(() => {
     return <Orb />
@@ -43,7 +45,7 @@ function Layout({ children }: { children?: React.ReactNode }) {
       <AppStyled>
         {OrbMemoized}
         <StyledLayout>
-          <Nav />
+          <Nav username={data?.user?.name} />
           <main>{children}</main>
         </StyledLayout>
       </AppStyled>
