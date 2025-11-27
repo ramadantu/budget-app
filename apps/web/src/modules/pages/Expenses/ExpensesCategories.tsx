@@ -1,4 +1,13 @@
-import { book, circle, clothing, food, freelance, medical, takeaway, tv } from '../../utils/Icons'
+import {
+  book,
+  circle,
+  clothing,
+  food,
+  freelance,
+  medical,
+  takeaway,
+  tv,
+} from '../../../utils/Icons'
 
 export type Category =
   | 'education'

@@ -1,12 +1,14 @@
 import { useEffect } from 'react'
-import { Dashboard as DashboardStyled } from './StyledDashboard'
-import { useGlobalContext } from '../../context/globalContext'
-import RecentHistory from '../History/RecentHistory'
-import { InnerLayout } from '../Layout/StyledInner'
-import { dollar } from '../../utils/Icons'
-import Chart from '../Chart/Chart'
 
-function Dashboard() {
+import RecentHistory from '../../../Components/History/RecentHistory'
+import { InnerLayout } from '../../../Components/Layout/StyledInner'
+import Chart from '../../../Components/Chart/Chart'
+import { useGlobalContext } from '../../../context/globalContext'
+import { dollar } from '../../../utils/Icons'
+
+import { Dashboard as DashboardStyled } from './StyledDashboard'
+
+export default function DashboardPageContent() {
   const ctxResponse = useGlobalContext()
 
   useEffect(() => {
@@ -68,5 +70,3 @@ function Dashboard() {
     </DashboardStyled>
   )
 }
-
-export default Dashboard

@@ -1,4 +1,4 @@
-import DashboardPageContent from '../Components/Dashboard/Dashboard'
+import DashboardPageContent from '../modules/pages/Dashboard'
 import Layout from '../modules/Layout'
 
 export default function DashboardPage() {

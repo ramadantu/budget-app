@@ -1,11 +1,13 @@
 import { useEffect } from 'react'
-import { Expenses as ExpensesStyled } from './StyledExpenses'
-import { useGlobalContext } from '../../context/globalContext'
-import { InnerLayout } from '../Layout/StyledInner'
-import Form from '../Form/Form'
-import HistoryList from '../History/HistoryList'
 
-function Expenses() {
+import { InnerLayout } from '../../../Components/Layout/StyledInner'
+import Form from '../../../Components/Form/Form'
+import HistoryList from '../../../Components/History/HistoryList'
+import { useGlobalContext } from '../../../context/globalContext'
+
+import { Expenses as ExpensesStyled } from './StyledExpenses'
+
+export default function Expenses() {
   const ctxResponse = useGlobalContext()
 
   useEffect(() => {
@@ -28,5 +30,3 @@ function Expenses() {
     </ExpensesStyled>
   )
 }
-
-export default Expenses

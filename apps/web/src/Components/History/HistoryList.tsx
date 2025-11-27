@@ -3,8 +3,8 @@ import { useGlobalContext } from '../../context/globalContext'
 import { dateFormat } from '../../utils/dateFormat'
 import { calendar, comment, dollar, trash } from '../../utils/Icons'
 import Button from '../Button/Button'
-import { getExpensesCategoriesIcon } from '../Expenses/ExpensesCategories'
-import { getIncomeCategoriesIcon } from '../Incomes/IncomeCategories'
+import { getExpensesCategoriesIcon } from '../../modules/pages/Expenses'
+import { getIncomeCategoriesIcon } from '../../modules/pages/Incomes'
 
 interface HistoryListProps {
   type: 'incomes' | 'expenses'

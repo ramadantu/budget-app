@@ -1,9 +1,11 @@
 import { useEffect } from 'react'
+
+import { InnerLayout } from '../../../Components/Layout/StyledInner'
+import Form from '../../../Components/Form/Form'
+import HistoryList from '../../../Components/History/HistoryList'
+import { useGlobalContext } from '../../../context/globalContext'
+
 import { Income as IncomeStyled } from './StyledIncome'
-import { useGlobalContext } from '../../context/globalContext'
-import { InnerLayout } from '../Layout/StyledInner'
-import Form from '../Form/Form'
-import HistoryList from '../History/HistoryList'
 
 function Incomes() {
   const ctxResponse = useGlobalContext()

@@ -1,4 +1,4 @@
-import IncomesPageContent from '../Components/Incomes/Incomes'
+import IncomesPageContent from '../modules/pages/Incomes/PageContent'
 import Layout from '../modules/Layout'
 
 export default function IncomesPage() {

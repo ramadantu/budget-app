@@ -5,10 +5,8 @@ import DatePicker from 'react-datepicker'
 import { useGlobalContext } from '../../context/globalContext'
 import Button from '../Button/Button'
 import { plus } from '../../utils/Icons'
-import ExpensesCategories, {
-  type Category as ExpensesCategory,
-} from '../Expenses/ExpensesCategories'
-import IncomeCategories, { type Category as IncomesCategory } from '../Incomes/IncomeCategories'
+import { ExpensesCategories, type ExpensesCategory } from '../../modules/pages/Expenses'
+import { IncomeCategories, type IncomesCategory } from '../../modules/pages/Incomes'
 
 interface FormProps {
   type: 'Incomes' | 'Expenses'

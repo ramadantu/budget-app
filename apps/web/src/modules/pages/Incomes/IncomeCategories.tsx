@@ -1,4 +1,4 @@
-import { bitcoin, card, freelance, money, piggy, stocks, users, yt } from '../../utils/Icons'
+import { bitcoin, card, freelance, money, piggy, stocks, users, yt } from '../../../utils/Icons'
 
 export type Category =
   | 'salary'
