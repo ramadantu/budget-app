@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Form as FormStyled } from './StyledForm'
 import DatePicker from 'react-datepicker'
-// import 'react-datepicker/dist/react-datepicker.css'
 import { useGlobalContext } from '../../context/globalContext'
 import Button from '../Button/Button'
 import { plus } from '../../utils/Icons'

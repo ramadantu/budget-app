@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import { AppProps } from 'next/app'
 import { SessionProvider } from 'next-auth/react'
 import { styled } from 'styled-components'
+import 'react-datepicker/dist/react-datepicker.css'
 
 import { GlobalProvider } from '../context/globalContext'
 import { GlobalStyle } from '../styles/GlobalStyle'
