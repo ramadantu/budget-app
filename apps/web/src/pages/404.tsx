@@ -1,9 +1,9 @@
+import Layout from '../modules/Layout'
+
 export default function NotFound() {
   return (
-    <div>
-      <header>
-        <div>Страницата избяга!</div>
-      </header>
-    </div>
+    <Layout>
+      <div>Страницата избяга!</div>
+    </Layout>
   )
 }
