@@ -1,22 +1,23 @@
-import { ListItem as StyledListItem } from './StyledListItem'
-import { useGlobalContext } from '../../context/globalContext'
+import { Expense, Income, useGlobalContext } from '../../context/globalContext'
 import { dateFormat } from '../../utils/dateFormat'
 import { calendar, comment, dollar, trash } from '../../utils/Icons'
 import { getExpensesCategoriesIcon } from '../../modules/pages/Expenses'
 import { getIncomeCategoriesIcon } from '../../modules/pages/Incomes'
 
 import Button from '../Button'
+
+import { ListItem as StyledListItem } from './StyledListItem'
+
 interface HistoryListProps {
-  type: 'incomes' | 'expenses'
-  list: any[]
+  list: (Income | Expense)[]
 }
 
-function HistoryList({ list, type }: HistoryListProps) {
+function HistoryList({ list }: HistoryListProps) {
   const ctxResponse = useGlobalContext()
 
   return (
     <div className="incomes">
-      {list.map(({ id, title, amount, date, category, description }) => {
+      {list.map(({ id, title, amount, date, category, description, type }) => {
         return (
           <StyledListItem $background={'var(--color-green)'} key={id}>
             <div className="icon">
@@ -32,7 +33,7 @@ function HistoryList({ list, type }: HistoryListProps) {
                     {dollar} {amount}
                   </p>
                   <p>
-                    {calendar} {dateFormat(date)}
+                    {calendar} {dateFormat(date ?? new Date(Date.now()))}
                   </p>
                   <p>
                     {comment}

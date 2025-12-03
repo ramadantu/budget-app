@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Form as FormStyled } from './StyledForm'
+
 import DatePicker from 'react-datepicker'
 
 import { Expense, Income, useGlobalContext } from '../../context/globalContext'
@@ -8,24 +8,24 @@ import { ExpensesCategories, type ExpensesCategory } from '../../modules/pages/E
 import { IncomeCategories, type IncomesCategory } from '../../modules/pages/Incomes'
 
 import Button from '../Button'
+
+import { Form as FormStyled } from './StyledForm'
+
 interface FormProps {
   type: 'Incomes' | 'Expenses'
 }
 
 function Form({ type }: FormProps) {
   const ctxResponse = useGlobalContext()
-  const [inputState, setInputState] = useState<{
-    title: string
-    amount: string
-    date: Date | null
-    category: string
-    description: string
-  }>({
+  const [inputState, setInputState] = useState<Expense | Income>({
+    id: '',
     title: '',
-    amount: '',
+    amount: null,
     date: null,
-    category: '',
+    category: null,
     description: '',
+    createdAt: new Date(),
+    type: type.toLowerCase() as 'incomes' | 'expenses',
   })
 
   const { title, amount, date, category, description } = inputState
@@ -39,13 +39,24 @@ function Form({ type }: FormProps) {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    type === 'Expenses' ? ctxResponse?.addExpense(inputState) : ctxResponse?.addIncome(inputState)
+
+    if (ctxResponse) {
+      if (inputState.type === 'expenses') {
+        ctxResponse.addExpense(inputState)
+      } else {
+        ctxResponse.addIncome(inputState)
+      }
+    }
+
     setInputState({
+      id: '',
       title: '',
-      amount: '',
+      amount: null,
       date: null,
-      category: '',
+      category: null,
       description: '',
+      createdAt: new Date(),
+      type: type.toLowerCase() as 'incomes' | 'expenses',
     })
   }
 
@@ -63,7 +74,7 @@ function Form({ type }: FormProps) {
       </div>
       <div className="input-control">
         <input
-          value={amount}
+          value={amount ?? undefined}
           type="text"
           name={'amount'}
           placeholder={`${type} Amount`}

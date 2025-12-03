@@ -28,12 +28,18 @@
     "format": "prettier --write \"**/*.{js,ts,jsx,tsx,json,css,md}\""
   },
   "devDependencies": {
+    "@budget-app/eslint-config": "*",
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.28.0",
     "concurrently": "^9.1.2",
     "eslint": "^9.28.0",
     "eslint-config-prettier": "^10.1.5",
+    "eslint-config-problems": "^9.0.0",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-sonarjs": "^3.0.5",
     "globals": "^16.2.0",
     "prettier": "3.5.3",
     "typescript-eslint": "^8.34.0"

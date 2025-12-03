@@ -1,5 +1,6 @@
-import { RecentHistory as RecentHistoryStyled } from './StyledRecentHistory'
 import { useGlobalContext } from '../../context/globalContext'
+
+import { RecentHistory as RecentHistoryStyled } from './StyledRecentHistory'
 
 function RecentHistory() {
   const ctxResponse = useGlobalContext()
@@ -27,8 +28,8 @@ function RecentHistory() {
               }}
             >
               {type === 'expenses'
-                ? `-${amount <= 0 ? 0 : amount}`
-                : `+${amount <= 0 ? 0 : amount}`}
+                ? `-${!amount || amount <= 0 ? 0 : amount}`
+                : `+${!amount || amount <= 0 ? 0 : amount}`}
             </p>
           </div>
         )

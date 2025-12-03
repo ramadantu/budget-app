@@ -1,21 +1,47 @@
 import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from 'react'
+
 import axios from 'axios'
+
+import { ExpensesCategory } from '../modules/pages/Expenses'
+import { IncomesCategory } from '../modules/pages/Incomes'
 
 const BASE_URL = 'http://localhost:5001/api/v1/'
 
+export type Income = {
+  id: string
+  title: string
+  amount: number | null
+  date: Date | null
+  category: IncomesCategory | null
+  description: string
+  createdAt: Date
+  type: 'incomes'
+}
+
+export type Expense = {
+  id: string
+  title: string
+  amount: number | null
+  date: Date | null
+  category: ExpensesCategory | null
+  description: string
+  createdAt: Date
+  type: 'expenses'
+}
+
 interface GlobalContextProps {
-  addIncome: (income: any) => Promise<void>
+  addIncome: (income: Income) => Promise<void>
   getIncomes: () => Promise<void>
-  incomes: any[]
+  incomes: Income[]
   deleteIncome: (id: string) => Promise<void>
-  expenses: any[]
+  expenses: Expense[]
   totalIncomes: () => number
-  addExpense: (expense: any) => Promise<void>
+  addExpense: (expense: Expense) => Promise<void>
   getExpenses: () => Promise<void>
   deleteExpense: (id: string) => Promise<void>
   totalExpenses: () => number
   totalBalance: () => number
-  transactionHistory: () => any[]
+  transactionHistory: () => (Income | Expense)[]
   error: string | null
   setError: Dispatch<SetStateAction<string | null>>
 }
@@ -29,10 +55,10 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 
   const getIncomes = async () => {
     const response = await axios.get(`${BASE_URL}get-incomes`)
-    setIncomes(response.data.map((income: any) => ({ ...income, type: 'incomes' })))
+    setIncomes(response.data.map((income: Income) => ({ ...income, type: 'incomes' })))
   }
 
-  const addIncome = async (income: any) => {
+  const addIncome = async (income: Income) => {
     await axios.post(`${BASE_URL}add-income`, income).catch((err) => {
       setError(err.response.data.message)
     })
@@ -46,8 +72,8 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 
   const totalIncomes = () => {
     let totalIncomes = 0
-    incomes.forEach((income: any) => {
-      totalIncomes = totalIncomes + income.amount
+    incomes.forEach((income: Income) => {
+      totalIncomes = totalIncomes + (income.amount ?? 0)
     })
 
     return totalIncomes
@@ -55,11 +81,11 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 
   const getExpenses = async () => {
     const response = await axios.get(`${BASE_URL}get-expenses`)
-    setExpenses(response.data.map((expense: any) => ({ ...expense, type: 'expenses' })))
+    setExpenses(response.data.map((expense: Expense) => ({ ...expense, type: 'expenses' })))
   }
 
-  const addExpense = async (income: any) => {
-    await axios.post(`${BASE_URL}add-expense`, income).catch((err) => {
+  const addExpense = async (expense: Expense) => {
+    await axios.post(`${BASE_URL}add-expense`, expense).catch((err) => {
       setError(err.response.data.message)
     })
     getExpenses()
@@ -72,8 +98,8 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 
   const totalExpenses = () => {
     let totalExpenses = 0
-    expenses.forEach((expense: any) => {
-      totalExpenses = totalExpenses + expense.amount
+    expenses.forEach((expense: Expense) => {
+      totalExpenses = totalExpenses + (expense.amount ?? 0)
     })
 
     return totalExpenses
@@ -85,7 +111,7 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 
   const transactionHistory = () => {
     const history = [...incomes, ...expenses]
-    history.sort((a: any, b: any) => {
+    history.sort((a: Income | Expense, b: Income | Expense) => {
       return Number(new Date(b.createdAt)) - Number(new Date(a.createdAt))
     })
 

@@ -1,4 +1,5 @@
 import { Route } from '../constants'
+
 import { dashboard, expenses, transactions, trend } from './Icons'
 
 export const menuItems = [

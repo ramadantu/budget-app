@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "name": "@budget-app/eslint-config",
+  "version": "0.1.0",
+  "main": "default.js",
+  "files": [
+    "default.js"
+  ],
+  "type": "module",
+  "peerDependencies": {
+    "eslint-config-problems": "*",
+    "eslint-plugin-react": "*",
+    "globals": "*",
+    "eslint-plugin-prettier": "*",
+    "eslint-plugin-import": "*",
+    "eslint-plugin-react-hooks": "*",
+    "eslint-plugin-sonarjs": "*"
+  }
+}
