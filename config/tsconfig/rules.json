@@ -1,8 +1,13 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Rules",
   "compilerOptions": {
     "forceConsistentCasingInFileNames": true,
+
     "noErrorTruncation": true,
+
     "strict": true,
+
     "strictNullChecks": true,
     "strictBindCallApply": true,
     "noImplicitAny": true,
@@ -19,18 +24,6 @@
     "noImplicitOverride": true,
     "noImplicitReturns": true,
     "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": false,
-    "composite": false,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "noEmit": true,
-    "resolveJsonModule": true,
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
+    "exactOptionalPropertyTypes": true
   }
 }

@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "version": "0.0.0",
+  "name": "@budget-app/ts-utils",
+  "main": "src/index.ts",
+  "scripts": {
+    "tsc": "tsc --noEmit",
+    "lint": "eslint --ext .ts,.tsx ."
+  },
+  "devDependencies": {
+    "@budget-app/tsconfig": "*"
+  }
+}

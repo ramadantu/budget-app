@@ -6,7 +6,9 @@
   "author": "Ramadan Velisha <ramadan.velisha@gmail.com>",
   "license": "MIT",
   "workspaces": [
-    "apps/*"
+    "apps/*",
+    "config/*",
+    "packages/*"
   ],
   "scripts": {
     "backup:containers": "bash ./containers/scripts/backup",

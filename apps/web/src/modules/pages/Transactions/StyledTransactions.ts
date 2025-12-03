@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Transactions = styled.div`
+export default styled.div`
   .stats-con {
     display: grid;
     grid-template-columns: repeat(5, 1fr);

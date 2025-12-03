@@ -1,4 +1,5 @@
 import { useMemo } from 'react'
+
 import { AppProps } from 'next/app'
 import { SessionProvider } from 'next-auth/react'
 import { styled } from 'styled-components'
@@ -6,7 +7,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 
 import { GlobalProvider } from '../context/globalContext'
 import { GlobalStyle } from '../styles/GlobalStyle'
-import Orb from '../modules/Layout/Orb'
+import { Orb } from '../modules/Layout'
 
 const AppStyled = styled.div`
   height: 100vh;
@@ -36,7 +37,7 @@ export default function App({ pageProps, Component }: AppProps) {
         <GlobalStyle />
         <AppStyled>
           {OrbMemoized}
-          <Component {...pageProps}></Component>
+          <Component {...pageProps} />
         </AppStyled>
       </GlobalProvider>
     </SessionProvider>

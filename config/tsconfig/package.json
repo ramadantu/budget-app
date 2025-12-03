@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "name": "@budget-app/tsconfig",
+  "version": "0.1.0",
+  "files": [
+    "rules.json",
+    "base.json",
+    "pkg.json",
+    "react.json",
+    "nextjs.json"
+  ]
+}

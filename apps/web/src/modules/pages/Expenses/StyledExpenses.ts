@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Expenses = styled.div`
+export default styled.div`
   display: flex;
   overflow: auto;
   .total-income {

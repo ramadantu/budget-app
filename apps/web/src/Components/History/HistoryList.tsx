@@ -2,10 +2,10 @@ import { ListItem as StyledListItem } from './StyledListItem'
 import { useGlobalContext } from '../../context/globalContext'
 import { dateFormat } from '../../utils/dateFormat'
 import { calendar, comment, dollar, trash } from '../../utils/Icons'
-import Button from '../Button/Button'
 import { getExpensesCategoriesIcon } from '../../modules/pages/Expenses'
 import { getIncomeCategoriesIcon } from '../../modules/pages/Incomes'
 
+import Button from '../Button'
 interface HistoryListProps {
   type: 'incomes' | 'expenses'
   list: any[]
