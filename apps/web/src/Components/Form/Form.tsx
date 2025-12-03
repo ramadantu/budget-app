@@ -1,15 +1,13 @@
 import { useState } from 'react'
 import { Form as FormStyled } from './StyledForm'
 import DatePicker from 'react-datepicker'
-import 'react-datepicker/dist/react-datepicker.css'
-import { useGlobalContext } from '../../context/globalContext'
-import Button from '../Button/Button'
-import { plus } from '../../utils/Icons'
-import ExpensesCategories, {
-  type Category as ExpensesCategory,
-} from '../Expenses/ExpensesCategories'
-import IncomeCategories, { type Category as IncomesCategory } from '../Incomes/IncomeCategories'
 
+import { Expense, Income, useGlobalContext } from '../../context/globalContext'
+import { plus } from '../../utils/Icons'
+import { ExpensesCategories, type ExpensesCategory } from '../../modules/pages/Expenses'
+import { IncomeCategories, type IncomesCategory } from '../../modules/pages/Incomes'
+
+import Button from '../Button'
 interface FormProps {
   type: 'Incomes' | 'Expenses'
 }

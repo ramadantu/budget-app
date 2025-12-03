@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "React",
+  "extends": "./pkg.json",
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"]
+  }
+}

@@ -1,3 +1,25 @@
 {
-    "extends": "../../tsconfig.json"
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@budget-app/tsconfig/nextjs.json",
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "strictNullChecks": true,
+    "jsx": "preserve"
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
