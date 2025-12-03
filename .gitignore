@@ -4,3 +4,5 @@ dist
 tsconfig.tsbuildinfo
 .next
 build
+.env
+.env.local
