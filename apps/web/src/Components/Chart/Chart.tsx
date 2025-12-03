@@ -9,11 +9,12 @@ import {
   Legend,
   ArcElement,
 } from 'chart.js'
-
 import { Line } from 'react-chartjs-2'
-import { Chart as ChartStyled } from './StyledChart'
+
 import { useGlobalContext } from '../../context/globalContext'
 import { dateFormat } from '../../utils/dateFormat'
+
+import { Chart as ChartStyled } from './StyledChart'
 
 ChartJs.register(
   CategoryScale,
@@ -31,9 +32,9 @@ function Chart() {
 
   const data = ctxResponse
     ? {
-        labels: ctxResponse?.incomes.map((inc) => {
-          const { date } = inc
-          return dateFormat(date)
+        labels: ctxResponse?.incomes.map((income) => {
+          const { date } = income
+          return dateFormat(date ?? new Date(Date.now()))
         }),
         datasets: [
           {
