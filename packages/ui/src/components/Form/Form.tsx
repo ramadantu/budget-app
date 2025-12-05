@@ -2,21 +2,21 @@ import { useState } from 'react'
 
 import DatePicker from 'react-datepicker'
 
-import { Expense, Income, useGlobalContext } from '../../context/globalContext'
-import { plus } from '../../utils/Icons'
-import { ExpensesCategories, type ExpensesCategory } from '../../modules/pages/Expenses'
-import { IncomeCategories, type IncomesCategory } from '../../modules/pages/Incomes'
+import StyledForm from '../../styles/Form'
+import { Expense, Income } from '../../utils/types'
 
 import Button from '../Button'
-
-import { Form as FormStyled } from './StyledForm'
+import Icon from '../Icon'
 
 interface FormProps {
   type: 'Incomes' | 'Expenses'
+  addIncome?: ((income: Income) => Promise<void>) | undefined
+  addExpense?: ((expense: Expense) => Promise<void>) | undefined
+  error?: string | undefined
+  setError?: ((error: string) => void) | undefined
 }
 
-function Form({ type }: FormProps) {
-  const ctxResponse = useGlobalContext()
+function Form({ type, addIncome, addExpense, error, setError }: FormProps) {
   const [inputState, setInputState] = useState<Expense | Income>({
     id: '',
     title: '',
@@ -25,27 +25,25 @@ function Form({ type }: FormProps) {
     category: null,
     description: '',
     createdAt: new Date(),
-    type: type.toLowerCase() as 'incomes' | 'expenses',
+    type: type.toLowerCase() as Expense['type'] | Income['type'],
   })
 
-  const { title, amount, date, category, description } = inputState
+  const { title, amount, date, description } = inputState
 
   const handleInput =
     (name: string) =>
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
       setInputState({ ...inputState, [name]: e.target.value })
-      ctxResponse?.setError('')
+      setError?.('')
     }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    if (ctxResponse) {
-      if (inputState.type === 'expenses') {
-        ctxResponse.addExpense(inputState)
-      } else {
-        ctxResponse.addIncome(inputState)
-      }
+    if (inputState.type === 'expenses') {
+      addExpense?.(inputState)
+    } else {
+      addIncome?.(inputState)
     }
 
     setInputState({
@@ -56,13 +54,13 @@ function Form({ type }: FormProps) {
       category: null,
       description: '',
       createdAt: new Date(),
-      type: type.toLowerCase() as 'incomes' | 'expenses',
+      type: type.toLowerCase() as Expense['type'] | Income['type'],
     })
   }
 
   return (
-    <FormStyled onSubmit={handleSubmit}>
-      {ctxResponse?.error && <p className="error">{ctxResponse?.error}</p>}
+    <StyledForm onSubmit={handleSubmit}>
+      {error && <p className="error">{error}</p>}
       <div className="input-control">
         <input
           type="text"
@@ -92,11 +90,11 @@ function Form({ type }: FormProps) {
           }}
         />
       </div>
-      {type === 'Expenses' ? (
-        <ExpensesCategories category={category as ExpensesCategory} handleInput={handleInput} />
+      {/* {type === 'Expenses' ? (
+        <ExpensesCategories category={category} handleInput={handleInput} />
       ) : (
-        <IncomeCategories category={category as IncomesCategory} handleInput={handleInput} />
-      )}
+        <IncomesCategories category={category} handleInput={handleInput} />
+      )} */}
       <div className="input-control">
         <textarea
           name="description"
@@ -111,14 +109,14 @@ function Form({ type }: FormProps) {
       <div className="submit-btn">
         <Button
           name={`Add ${type}`}
-          icon={plus}
+          icon={<Icon name="plus" />}
           bPad={'.8rem 1.6rem'}
           bRad={'30px'}
           bg={'var(--color-accent'}
           color={'#fff'}
         />
       </div>
-    </FormStyled>
+    </StyledForm>
   )
 }
 

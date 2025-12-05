@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Chart = styled.div`
+export default styled.div`
   background: #fcf6f9;
   border: 2px solid #ffffff;
   box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ListItem = styled.div<{ $background: string }>`
+export default styled.div<{ $background: string }>`
   background: #fcf6f9;
   border: 2px solid #ffffff;
   box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);

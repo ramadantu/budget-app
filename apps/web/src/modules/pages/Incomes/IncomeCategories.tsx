@@ -34,7 +34,7 @@ export const getIncomeCategoriesIcon = (category: Category | null) => {
     case 'other':
       return piggy
     default:
-      return ''
+      return null
   }
 }
 

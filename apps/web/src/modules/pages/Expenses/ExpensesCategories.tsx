@@ -43,7 +43,7 @@ export const getExpensesCategoriesIcon = (category: Category | null) => {
     case 'other':
       return circle
     default:
-      return ''
+      return null
   }
 }
 
