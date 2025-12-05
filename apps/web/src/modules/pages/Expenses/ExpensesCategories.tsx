@@ -1,13 +1,4 @@
-import {
-  book,
-  circle,
-  clothing,
-  food,
-  freelance,
-  medical,
-  takeaway,
-  tv,
-} from '../../../utils/Icons'
+import { Icon } from '@budget-app/ui'
 
 export type Category =
   | 'education'
@@ -27,21 +18,21 @@ interface ExpensesCategoriesProps {
 export const getExpensesCategoriesIcon = (category: Category | null) => {
   switch (category) {
     case 'education':
-      return book
+      return <Icon name="book" />
     case 'groceries':
-      return food
+      return <Icon name="food" />
     case 'health':
-      return medical
+      return <Icon name="medical" />
     case 'subscriptions':
-      return tv
+      return <Icon name="tv" />
     case 'takeaways':
-      return takeaway
+      return <Icon name="takeaway" />
     case 'clothing':
-      return clothing
+      return <Icon name="clothing" />
     case 'travelling':
-      return freelance
+      return <Icon name="freelance" />
     case 'other':
-      return circle
+      return <Icon name="circle" />
     default:
       return null
   }

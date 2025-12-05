@@ -1,10 +1,9 @@
 import { useEffect } from 'react'
 
-import { Chart, TransactionsHistory } from '@budget-app/ui'
+import { Chart, Icon, TransactionsHistory } from '@budget-app/ui'
 
 import Layout from '../modules/Layout'
 import { useGlobalContext } from '../context/globalContext'
-import { dollar } from '../utils/Icons'
 import InnerLayout from '../components/Layout'
 import TransactionsStyled from '../modules/pages/Transactions'
 
@@ -15,6 +14,8 @@ export default function TransactionsPage() {
     ctxResponse?.getIncomes()
     ctxResponse?.getExpenses()
   }, [])
+
+  const dollar = <Icon name="dollar" />
 
   return (
     <Layout>

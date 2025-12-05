@@ -1,4 +1,4 @@
-import { bitcoin, card, freelance, money, piggy, stocks, users, yt } from '../../../utils/Icons'
+import { Icon } from '@budget-app/ui'
 
 export type Category =
   | 'salary'
@@ -18,21 +18,21 @@ interface IncomeCategoriesProps {
 export const getIncomeCategoriesIcon = (category: Category | null) => {
   switch (category) {
     case 'salary':
-      return money
+      return <Icon name="money" />
     case 'freelancing':
-      return freelance
+      return <Icon name="freelance" />
     case 'investments':
-      return stocks
+      return <Icon name="stocks" />
     case 'stocks':
-      return users
+      return <Icon name="users" />
     case 'bitcoin':
-      return bitcoin
+      return <Icon name="bitcoin" />
     case 'bank':
-      return card
+      return <Icon name="card" />
     case 'youtube':
-      return yt
+      return <Icon name="yt" />
     case 'other':
-      return piggy
+      return <Icon name="piggy" />
     default:
       return null
   }
