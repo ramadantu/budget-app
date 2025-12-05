@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
 
-import IncomeStyled from '../modules/pages/Incomes'
+import { Form, HistoryList } from '@budget-app/ui'
+
+import IncomeStyled, { getIncomeCategoriesIcon } from '../modules/pages/Incomes'
 import Layout from '../modules/Layout'
 import { useGlobalContext } from '../context/globalContext'
 import InnerLayout from '../components/Layout'
-import Form from '../components/Form'
-import { HistoryList } from '../components/History'
 
 export default function IncomesPage() {
   const ctxResponse = useGlobalContext()
@@ -24,9 +24,18 @@ export default function IncomesPage() {
           </h2>
           <div className="income-content">
             <div className="form-container">
-              <Form type={'Incomes'} />
+              <Form
+                type={'Incomes'}
+                addIncome={ctxResponse?.addIncome}
+                error={ctxResponse?.error ?? ''}
+                setError={ctxResponse?.setError}
+              />
             </div>
-            <HistoryList list={ctxResponse?.incomes ?? []} />
+            <HistoryList
+              transactions={ctxResponse?.incomes ?? []}
+              deleteIncome={ctxResponse?.deleteIncome}
+              getIncomeCategoriesIcon={getIncomeCategoriesIcon}
+            />
           </div>
         </InnerLayout>
       </IncomeStyled>

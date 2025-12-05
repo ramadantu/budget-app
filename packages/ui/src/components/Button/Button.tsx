@@ -1,4 +1,4 @@
-import { Button as ButtonStyled } from './SyledButton'
+import StyledButton from '../../styles/Button'
 
 interface ButtonProps {
   name?: string
@@ -12,7 +12,7 @@ interface ButtonProps {
 
 function Button({ name, icon, onClick, bg, bPad, color, bRad }: ButtonProps) {
   return (
-    <ButtonStyled
+    <StyledButton
       style={{
         background: bg,
         padding: bPad,
@@ -23,7 +23,7 @@ function Button({ name, icon, onClick, bg, bPad, color, bRad }: ButtonProps) {
     >
       {icon}
       {name}
-    </ButtonStyled>
+    </StyledButton>
   )
 }
 

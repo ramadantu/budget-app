@@ -1,10 +1,10 @@
 import { signOut } from 'next-auth/react'
 import { useRouter } from 'next/router'
 
-import { signout } from '../../utils/Icons'
 import { menuItems } from '../../utils/menuItems'
 
 import { Nav as NavStyled } from './StyledNav'
+import { Icon } from '@budget-app/ui'
 
 interface NavProps {
   username?: string | null | undefined
@@ -44,7 +44,10 @@ function Nav({ username }: NavProps) {
           signOut()
         }}
       >
-        <li>{signout} Sign Out</li>
+        <li>
+          <Icon name="signout" />
+          Sign Out
+        </li>
       </div>
     </NavStyled>
   )

@@ -1,17 +1,20 @@
-import { useGlobalContext } from '../../context/globalContext'
+import StyledHistory from '../../styles/History'
+import { Transaction } from '../../utils/types'
 
-import { RecentHistory as RecentHistoryStyled } from './StyledRecentHistory'
+interface TransactionsHistoryProps {
+  transactions?: Transaction[] | null | undefined
+}
 
-function RecentHistory() {
-  const ctxResponse = useGlobalContext()
+function TransactionsHistory({ transactions }: TransactionsHistoryProps) {
+  // const ctxResponse = useGlobalContext()
 
-  const history = ctxResponse?.transactionHistory()
+  // const history = ctxResponse?.transactionHistory()
 
   return (
-    <RecentHistoryStyled>
+    <StyledHistory>
       <h2>Recent History</h2>
-      {history?.map((item) => {
-        const { id, title, amount, type } = item
+      {transactions?.map((transaction) => {
+        const { id, title, amount, type } = transaction
         return (
           <div key={id} className="history-item">
             <p
@@ -34,8 +37,8 @@ function RecentHistory() {
           </div>
         )
       })}
-    </RecentHistoryStyled>
+    </StyledHistory>
   )
 }
 
-export default RecentHistory
+export default TransactionsHistory

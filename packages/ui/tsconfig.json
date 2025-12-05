@@ -1,0 +1,3 @@
+{
+  "extends": "@budget-app/tsconfig/react.json"
+}

@@ -1,12 +1,11 @@
 import { useEffect } from 'react'
 
+import { Chart, Icon, TransactionsHistory } from '@budget-app/ui'
+
 import { useGlobalContext } from '../context/globalContext'
 import Layout from '../modules/Layout'
 import DashboardStyled from '../modules/pages/Dashboard'
 import InnerLayout from '../components/Layout'
-import Chart from '../components/Chart'
-import { dollar } from '../utils/Icons'
-import RecentHistory from '../components/History'
 
 export default function DashboardPage() {
   const ctxResponse = useGlobalContext()
@@ -16,6 +15,8 @@ export default function DashboardPage() {
     ctxResponse?.getExpenses()
   }, [])
 
+  const dollar = <Icon name="dollar" />
+
   return (
     <Layout>
       <DashboardStyled>
@@ -23,7 +24,7 @@ export default function DashboardPage() {
           <h1>All Transactions</h1>
           <div className="stats-con">
             <div className="chart-con">
-              <Chart />
+              <Chart incomes={ctxResponse?.incomes} expenses={ctxResponse?.expenses} />
               <div className="amount-con">
                 <div className="income">
                   <h2>Total Incomes</h2>
@@ -46,7 +47,7 @@ export default function DashboardPage() {
               </div>
             </div>
             <div className="history-con">
-              <RecentHistory />
+              <TransactionsHistory transactions={ctxResponse?.transactionHistory()} />
               <h2 className="salary-title">
                 Min <span>Income</span>Max
               </h2>

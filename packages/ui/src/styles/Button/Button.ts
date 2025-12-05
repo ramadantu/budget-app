@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Button = styled.button`
+export default styled.button`
   outline: none;
   border: none;
   font-family: inherit;
