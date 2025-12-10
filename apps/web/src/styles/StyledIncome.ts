@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
 export default styled.div`
-  display: flex;
-  overflow: auto;
   .total-income {
     display: flex;
     justify-content: center;

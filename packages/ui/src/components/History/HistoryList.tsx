@@ -53,11 +53,11 @@ function HistoryList({
                 </div>
                 <div className="btn-con">
                   <Button
-                    icon={<Icon name="trash" />}
-                    bPad={'1rem'}
-                    bRad={'50%'}
-                    bg={'var(--primary-color'}
-                    color={'#fff'}
+                    iconName="trash"
+                    color={'var(--primary-color, inherit)'}
+                    textColor={'#fff'}
+                    padding={'1rem'}
+                    borderRadius={'50%'}
                     onClick={() => (type === 'expenses' ? deleteExpense?.(id) : deleteIncome?.(id))}
                   />
                 </div>

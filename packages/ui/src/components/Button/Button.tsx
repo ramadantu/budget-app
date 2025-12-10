@@ -1,28 +1,30 @@
 import StyledButton from '../../styles/Button'
 
+import Icon, { IconName } from '../Icon'
+
 interface ButtonProps {
-  name?: string
-  icon: React.ReactNode
+  text?: string
+  color?: string
+  textColor?: string
+  borderRadius?: string
+  padding?: string
+  iconName?: IconName
   onClick?: () => void
-  bg: string
-  bPad: string
-  color: string
-  bRad: string
 }
 
-function Button({ name, icon, onClick, bg, bPad, color, bRad }: ButtonProps) {
+function Button(props: ButtonProps) {
   return (
     <StyledButton
       style={{
-        background: bg,
-        padding: bPad,
-        borderRadius: bRad,
-        color,
+        backgroundColor: props.color,
+        padding: props.padding,
+        borderRadius: props.borderRadius,
+        color: props.textColor,
       }}
-      onClick={onClick}
+      onClick={props.onClick}
     >
-      {icon}
-      {name}
+      {props.iconName && <Icon name={props.iconName} />}
+      {props.text}
     </StyledButton>
   )
 }

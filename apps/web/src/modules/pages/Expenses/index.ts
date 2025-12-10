@@ -3,4 +3,3 @@ export {
   getExpensesCategoriesIcon,
   type Category as ExpensesCategory,
 } from './ExpensesCategories'
-export { default } from './StyledExpenses'

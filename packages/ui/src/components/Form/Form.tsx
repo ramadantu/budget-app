@@ -6,7 +6,6 @@ import StyledForm from '../../styles/Form'
 import { Expense, Income } from '../../utils/types'
 
 import Button from '../Button'
-import Icon from '../Icon'
 
 interface FormProps {
   type: 'Incomes' | 'Expenses'
@@ -108,12 +107,12 @@ function Form({ type, addIncome, addExpense, error, setError }: FormProps) {
       </div>
       <div className="submit-btn">
         <Button
-          name={`Add ${type}`}
-          icon={<Icon name="plus" />}
-          bPad={'.8rem 1.6rem'}
-          bRad={'30px'}
-          bg={'var(--color-accent'}
-          color={'#fff'}
+          text={`Add ${type}`}
+          iconName="plus"
+          color={'var(--color-accent, inherit)'}
+          textColor={'#fff'}
+          padding={'.8rem 1.6rem'}
+          borderRadius={'30px'}
         />
       </div>
     </StyledForm>

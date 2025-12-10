@@ -1,10 +1,11 @@
 import { signOut } from 'next-auth/react'
 import { useRouter } from 'next/router'
 
+import { Icon } from '@budget-app/ui'
+
 import { menuItems } from '../../utils/menuItems'
 
 import { Nav as NavStyled } from './StyledNav'
-import { Icon } from '@budget-app/ui'
 
 interface NavProps {
   username?: string | null | undefined

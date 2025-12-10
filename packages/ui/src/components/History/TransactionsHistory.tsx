@@ -6,10 +6,6 @@ interface TransactionsHistoryProps {
 }
 
 function TransactionsHistory({ transactions }: TransactionsHistoryProps) {
-  // const ctxResponse = useGlobalContext()
-
-  // const history = ctxResponse?.transactionHistory()
-
   return (
     <StyledHistory>
       <h2>Recent History</h2>

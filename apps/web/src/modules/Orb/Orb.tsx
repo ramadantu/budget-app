@@ -1,4 +1,4 @@
-import { useWindowSize } from '../../../utils/useWindowSize'
+import { useWindowSize } from '../../utils/useWindowSize'
 
 import { OrbStyled } from './StyledOrb'
 

@@ -4,10 +4,11 @@ import { AppProps } from 'next/app'
 import { SessionProvider } from 'next-auth/react'
 import { styled } from 'styled-components'
 import 'react-datepicker/dist/react-datepicker.css'
+import '../styles/css/App.css'
 
+import Orb from '../modules/Orb'
 import { GlobalProvider } from '../context/globalContext'
-import { GlobalStyle } from '../styles/GlobalStyle'
-import { Orb } from '../modules/Layout'
+import Layout from '../modules/Layout'
 
 const AppStyled = styled.div`
   height: 100vh;
@@ -34,10 +35,11 @@ export default function App({ pageProps, Component }: AppProps) {
   return (
     <SessionProvider>
       <GlobalProvider>
-        <GlobalStyle />
         <AppStyled>
           {OrbMemoized}
-          <Component {...pageProps} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
         </AppStyled>
       </GlobalProvider>
     </SessionProvider>

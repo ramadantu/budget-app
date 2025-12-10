@@ -62,8 +62,10 @@ const ICONS = {
   circle: Circle,
 }
 
+export type IconName = keyof typeof ICONS
+
 interface IconProps {
-  name: keyof typeof ICONS
+  name: IconName
 }
 
 export default function Icon({ name }: IconProps) {

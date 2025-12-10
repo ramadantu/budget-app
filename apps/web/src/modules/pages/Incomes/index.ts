@@ -3,4 +3,3 @@ export {
   getIncomeCategoriesIcon,
   type Category as IncomesCategory,
 } from './IncomeCategories'
-export { default } from './StyledIncome'

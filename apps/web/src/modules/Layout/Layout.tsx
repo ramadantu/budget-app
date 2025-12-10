@@ -12,6 +12,7 @@ const StyledLayout = styled.div`
 
 export default function Layout({ children }: { children?: React.ReactNode }) {
   const { data } = useSession({ required: true })
+
   return (
     <StyledLayout>
       <Nav username={data?.user?.name} />
