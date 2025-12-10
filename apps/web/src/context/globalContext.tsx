@@ -2,8 +2,7 @@ import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useStat
 
 import axios from 'axios'
 
-import { ExpensesCategory } from '../modules/pages/Expenses'
-import { IncomesCategory } from '../modules/pages/Incomes'
+import { ExpensesCategory, IncomesCategory } from '@budget-app/ui'
 
 const BASE_URL = 'http://localhost:5001/api/v1/'
 
