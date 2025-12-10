@@ -1,4 +1,4 @@
-import { Icon } from '@budget-app/ui'
+import { IconName } from '@budget-app/ui'
 
 export type Category =
   | 'education'
@@ -10,35 +10,23 @@ export type Category =
   | 'travelling'
   | 'other'
 
-interface ExpensesCategoriesProps {
+export const CATEGORY_ICON_MAP: Record<Category, IconName> = {
+  education: 'book',
+  groceries: 'food',
+  health: 'medical',
+  subscriptions: 'tv',
+  takeaways: 'takeaway',
+  clothing: 'clothing',
+  travelling: 'freelance',
+  other: 'circle',
+}
+
+export interface DropdownProps {
   category: Category | null
   handleInput: (name: string) => (e: React.ChangeEvent<HTMLSelectElement>) => void
 }
 
-export const getExpensesCategoriesIcon = (category: Category | null) => {
-  switch (category) {
-    case 'education':
-      return <Icon name="book" />
-    case 'groceries':
-      return <Icon name="food" />
-    case 'health':
-      return <Icon name="medical" />
-    case 'subscriptions':
-      return <Icon name="tv" />
-    case 'takeaways':
-      return <Icon name="takeaway" />
-    case 'clothing':
-      return <Icon name="clothing" />
-    case 'travelling':
-      return <Icon name="freelance" />
-    case 'other':
-      return <Icon name="circle" />
-    default:
-      return null
-  }
-}
-
-function ExpensesCategories({ category, handleInput }: ExpensesCategoriesProps) {
+export default function Dropdown({ category, handleInput }: DropdownProps) {
   return (
     <div className="selects input-control">
       <select
@@ -63,5 +51,3 @@ function ExpensesCategories({ category, handleInput }: ExpensesCategoriesProps) 
     </div>
   )
 }
-
-export default ExpensesCategories

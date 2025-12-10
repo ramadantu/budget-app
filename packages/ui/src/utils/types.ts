@@ -1,29 +1,12 @@
-export type ExpenseCategory =
-  | 'education'
-  | 'groceries'
-  | 'health'
-  | 'subscriptions'
-  | 'takeaways'
-  | 'clothing'
-  | 'travelling'
-  | 'other'
-
-export type IncomeCategory =
-  | 'salary'
-  | 'freelancing'
-  | 'investments'
-  | 'stocks'
-  | 'bitcoin'
-  | 'bank'
-  | 'youtube'
-  | 'other'
+import { Category as ExpensesCategory } from '../components/ExpensesDropdown'
+import { Category as IncomesCategory } from '../components/IncomesDropdown'
 
 export interface Expense {
   id: string
   title: string
   amount: number | null
   date: Date | null
-  category: ExpenseCategory | null
+  category: ExpensesCategory | null
   description: string
   type: 'expenses'
   createdAt: Date
@@ -34,7 +17,7 @@ export interface Income {
   title: string
   amount: number | null
   date: Date | null
-  category: IncomeCategory | null
+  category: IncomesCategory | null
   description: string
   type: 'incomes'
   createdAt: Date

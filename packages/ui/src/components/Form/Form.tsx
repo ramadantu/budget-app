@@ -5,6 +5,8 @@ import DatePicker from 'react-datepicker'
 import StyledForm from '../../styles/Form'
 import { Expense, Income } from '../../utils/types'
 
+import ExpensesDropdown from '../ExpensesDropdown'
+import IncomesDropdown from '../IncomesDropdown'
 import Button from '../Button'
 
 interface FormProps {
@@ -89,11 +91,12 @@ function Form({ type, addIncome, addExpense, error, setError }: FormProps) {
           }}
         />
       </div>
-      {/* {type === 'Expenses' ? (
-        <ExpensesCategories category={category} handleInput={handleInput} />
-      ) : (
-        <IncomesCategories category={category} handleInput={handleInput} />
-      )} */}
+      {inputState.type === 'expenses' && (
+        <ExpensesDropdown category={inputState.category} handleInput={handleInput} />
+      )}
+      {inputState.type === 'incomes' && (
+        <IncomesDropdown category={inputState.category} handleInput={handleInput} />
+      )}
       <div className="input-control">
         <textarea
           name="description"

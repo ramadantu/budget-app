@@ -1,38 +1,31 @@
-import { JSX } from 'react'
-
 import { dateFormat } from '../../utils/dateFormat'
-import { ExpenseCategory, IncomeCategory, Transaction } from '../../utils/types'
+import { Transaction } from '../../utils/types'
 import { HistoryListItem } from '../../styles/History'
 
 import Button from '../Button'
 import Icon from '../Icon'
+import { CATEGORY_ICON_MAP as EXPENSES_CATEGORY_ICON_MAP } from '../ExpensesDropdown'
+import { CATEGORY_ICON_MAP as INCOMES_CATEGORY_ICON_MAP } from '../IncomesDropdown'
 
 interface HistoryListProps {
   transactions: Transaction[]
   deleteExpense?: ((id: string) => Promise<void>) | undefined
   deleteIncome?: ((id: string) => Promise<void>) | undefined
-  getExpensesCategoriesIcon?: (category: ExpenseCategory | null) => JSX.Element | null
-  getIncomeCategoriesIcon?: (category: IncomeCategory | null) => JSX.Element | null
 }
 
-function HistoryList({
-  transactions,
-  deleteExpense,
-  deleteIncome,
-  getExpensesCategoriesIcon,
-  getIncomeCategoriesIcon,
-}: HistoryListProps) {
-  // const ctxResponse = useGlobalContext()
-
+function HistoryList({ transactions, deleteExpense, deleteIncome }: HistoryListProps) {
   return (
     <div className="incomes">
       {transactions.map(({ id, title, amount, date, category, description, type }) => {
         return (
           <HistoryListItem $background={'var(--color-green)'} key={id}>
             <div className="icon">
-              {type === 'expenses'
-                ? getExpensesCategoriesIcon?.(category)
-                : getIncomeCategoriesIcon?.(category)}
+              {type === 'expenses' && category && (
+                <Icon name={EXPENSES_CATEGORY_ICON_MAP[category]} />
+              )}
+              {type === 'incomes' && category && (
+                <Icon name={INCOMES_CATEGORY_ICON_MAP[category]} />
+              )}
             </div>
             <div className="content">
               <h5>{title}</h5>

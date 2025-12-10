@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 
 import { Form, HistoryList } from '@budget-app/ui'
 
-import { getExpensesCategoriesIcon } from '../modules/pages/Expenses'
 import { useGlobalContext } from '../context/globalContext'
 import StyledExpenses from '../styles/StyledExpenses'
 
@@ -31,7 +30,6 @@ export default function ExpensesPage() {
         <HistoryList
           transactions={ctxResponse?.expenses ?? []}
           deleteExpense={ctxResponse?.deleteExpense}
-          getExpensesCategoriesIcon={getExpensesCategoriesIcon}
         />
       </div>
     </StyledExpenses>

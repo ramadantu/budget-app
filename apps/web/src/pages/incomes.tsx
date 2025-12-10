@@ -3,7 +3,6 @@ import { useEffect } from 'react'
 import { Form, HistoryList } from '@budget-app/ui'
 
 import StyledIncome from '../styles/StyledIncome'
-import { getIncomeCategoriesIcon } from '../modules/pages/Incomes'
 import { useGlobalContext } from '../context/globalContext'
 
 export default function IncomesPage() {
@@ -31,7 +30,6 @@ export default function IncomesPage() {
         <HistoryList
           transactions={ctxResponse?.incomes ?? []}
           deleteIncome={ctxResponse?.deleteIncome}
-          getIncomeCategoriesIcon={getIncomeCategoriesIcon}
         />
       </div>
     </StyledIncome>

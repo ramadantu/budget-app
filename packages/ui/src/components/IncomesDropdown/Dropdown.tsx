@@ -1,4 +1,4 @@
-import { Icon } from '@budget-app/ui'
+import { IconName } from '@budget-app/ui'
 
 export type Category =
   | 'salary'
@@ -10,35 +10,23 @@ export type Category =
   | 'youtube'
   | 'other'
 
-interface IncomeCategoriesProps {
+export const CATEGORY_ICON_MAP: Record<Category, IconName> = {
+  salary: 'money',
+  freelancing: 'freelance',
+  investments: 'stocks',
+  stocks: 'users',
+  bitcoin: 'bitcoin',
+  bank: 'card',
+  youtube: 'yt',
+  other: 'piggy',
+}
+
+export interface DropdownProps {
   category: Category | null
   handleInput: (name: string) => (e: React.ChangeEvent<HTMLSelectElement>) => void
 }
 
-export const getIncomeCategoriesIcon = (category: Category | null) => {
-  switch (category) {
-    case 'salary':
-      return <Icon name="money" />
-    case 'freelancing':
-      return <Icon name="freelance" />
-    case 'investments':
-      return <Icon name="stocks" />
-    case 'stocks':
-      return <Icon name="users" />
-    case 'bitcoin':
-      return <Icon name="bitcoin" />
-    case 'bank':
-      return <Icon name="card" />
-    case 'youtube':
-      return <Icon name="yt" />
-    case 'other':
-      return <Icon name="piggy" />
-    default:
-      return null
-  }
-}
-
-function IncomeCategories({ category, handleInput }: IncomeCategoriesProps) {
+export default function Dropdown({ category, handleInput }: DropdownProps) {
   return (
     <div className="selects input-control">
       <select
@@ -63,5 +51,3 @@ function IncomeCategories({ category, handleInput }: IncomeCategoriesProps) {
     </div>
   )
 }
-
-export default IncomeCategories
