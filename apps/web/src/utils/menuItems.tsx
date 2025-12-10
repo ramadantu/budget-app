@@ -1,30 +1,26 @@
-import { Icon } from '@budget-app/ui'
+import { IconName } from '@budget-app/ui'
 
 import { Route } from '../constants'
 
-export const menuItems = [
+export const menuItems: { title: string; iconName: IconName; link: Route }[] = [
   {
-    id: 1,
     title: 'Dashboard',
-    icon: <Icon name="dashboard" />,
+    iconName: 'dashboard',
     link: Route.Dashboard,
   },
   {
-    id: 2,
     title: 'View Transactions',
-    icon: <Icon name="transactions" />,
+    iconName: 'transactions',
     link: Route.Transactions,
   },
   {
-    id: 3,
     title: 'Incomes',
-    icon: <Icon name="trend" />,
+    iconName: 'trend',
     link: Route.Incomes,
   },
   {
-    id: 4,
     title: 'Expenses',
-    icon: <Icon name="expenses" />,
+    iconName: 'expenses',
     link: Route.Expenses,
   },
 ]

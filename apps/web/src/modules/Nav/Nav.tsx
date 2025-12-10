@@ -24,16 +24,16 @@ function Nav({ username }: NavProps) {
         </div>
       </div>
       <ul className="menu-items">
-        {menuItems.map((item) => {
+        {menuItems.map((item, index) => {
           return (
             <li
-              key={item.id}
+              key={index}
               onClick={() => {
                 router.push(item.link)
               }}
               className={router.pathname === item.link ? 'active' : ''}
             >
-              {item.icon}
+              <Icon name={item.iconName} />
               <span>{item.title}</span>
             </li>
           )
