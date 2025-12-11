@@ -24,6 +24,7 @@ export default function Nav({ username }: NavProps) {
           </div>
         </div>
       )}
+
       <ul className="menu-items">
         {menuItems.map((item, index) => (
           <li
@@ -32,15 +33,14 @@ export default function Nav({ username }: NavProps) {
             className={router.pathname === item.link ? 'active' : ''}
           >
             <Icon name={item.iconName} />
-            <span>{item.title}</span>
+            {item.title}
           </li>
         ))}
       </ul>
+
       <div className="bottom-nav" onClick={() => signOut()}>
-        <li>
-          <Icon name="signout" />
-          Sign Out
-        </li>
+        <Icon name="signout" />
+        {'Sign Out'}
       </div>
     </StyledNav>
   )
