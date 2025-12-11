@@ -1,0 +1,21 @@
+import styled from 'styled-components'
+
+export default styled.div`
+  height: 100vh;
+  background-image: url('./img/bg.png');
+  position: relative;
+
+  main {
+    padding: 2rem 1.5rem;
+    width: 100%;
+    flex: 1;
+    background: rgba(252, 246, 249, 0.78);
+    border: 3px solid #ffffff;
+    backdrop-filter: blur(4.5px);
+    border-radius: 32px;
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+`

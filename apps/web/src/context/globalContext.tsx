@@ -2,8 +2,7 @@ import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useStat
 
 import axios from 'axios'
 
-import { ExpensesCategory } from '../modules/pages/Expenses'
-import { IncomesCategory } from '../modules/pages/Incomes'
+import { ExpensesCategory, IncomesCategory } from '@budget-app/ui'
 
 const BASE_URL = 'http://localhost:5001/api/v1/'
 
@@ -110,12 +109,11 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
   }
 
   const transactionHistory = () => {
-    const history = [...incomes, ...expenses]
-    history.sort((a: Income | Expense, b: Income | Expense) => {
-      return Number(new Date(b.createdAt)) - Number(new Date(a.createdAt))
-    })
-
-    return history.slice(0, 3)
+    return [...incomes, ...expenses]
+      .sort((a: Income | Expense, b: Income | Expense) => {
+        return Number(new Date(b.createdAt)) - Number(new Date(a.createdAt))
+      })
+      .slice(0, 3)
   }
 
   return (

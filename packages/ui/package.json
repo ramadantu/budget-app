@@ -1,0 +1,26 @@
+{
+  "private": true,
+  "version": "0.0.0",
+  "name": "@budget-app/ui",
+  "main": "src/index.ts",
+  "scripts": {
+    "tsc": "tsc --noEmit",
+    "lint": "eslint --ext .ts,.tsx ."
+  },
+  "devDependencies": {
+    "@budget-app/tsconfig": "*"
+  },
+  "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^7.1.0",
+    "@fortawesome/free-solid-svg-icons": "^7.1.0",
+    "@fortawesome/react-fontawesome": "^3.1.1",
+    "chart.js": "^4.5.1",
+    "moment": "^2.30.1",
+    "react-chartjs-2": "^5.3.1",
+    "react-datepicker": "^8.10.0",
+    "styled-components": "^6.1.19"
+  },
+  "peerDependencies": {
+    "react": "^19.2.1"
+  }
+}

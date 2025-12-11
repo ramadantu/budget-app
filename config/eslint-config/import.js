@@ -13,6 +13,7 @@ const MODULE_CONTAINERS = [
   'controllers',
   'db',
   'styles',
+  'css',
   'routes',
   'pages',
   'components',
