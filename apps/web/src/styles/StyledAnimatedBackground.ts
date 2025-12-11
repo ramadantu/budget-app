@@ -1,11 +1,11 @@
 import styled, { keyframes } from 'styled-components'
 
-interface OrbStyledProps {
+interface StyledAnimatedBackgroundProps {
   width?: number | undefined
   height?: number | undefined
 }
 
-const moveOrb = ({ width, height }: OrbStyledProps) =>
+const moveOrb = ({ width, height }: StyledAnimatedBackgroundProps) =>
   keyframes`
         0%{
             transform: translate(0, 0);
@@ -18,7 +18,7 @@ const moveOrb = ({ width, height }: OrbStyledProps) =>
         }
     `
 
-export const OrbStyled = styled.div<OrbStyledProps>`
+export default styled.div<StyledAnimatedBackgroundProps>`
   width: 70vh;
   height: 70vh;
   position: absolute;

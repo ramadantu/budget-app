@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Nav = styled.nav`
+export default styled.nav`
   padding: 2rem 1.5rem;
   width: 374px;
   height: 100%;
