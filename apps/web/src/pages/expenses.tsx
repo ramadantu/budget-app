@@ -3,7 +3,6 @@ import { useEffect } from 'react'
 import { Form, HistoryList } from '@budget-app/ui'
 
 import { useGlobalContext } from '../context/globalContext'
-import StyledExpenses from '../styles/StyledExpenses'
 
 export default function ExpensesPage() {
   const ctxResponse = useGlobalContext()
@@ -13,13 +12,13 @@ export default function ExpensesPage() {
   }, [])
 
   return (
-    <StyledExpenses>
+    <div>
       <h1>Expenses</h1>
-      <h2 className="total-income">
+      <h2 className="total-container">
         Total Expenses: <span>${ctxResponse?.totalExpenses()}</span>
       </h2>
-      <div className="income-content">
-        <div className="form-container">
+      <div className="content">
+        <div>
           <Form
             type={'Expenses'}
             addExpense={ctxResponse?.addExpense}
@@ -32,6 +31,6 @@ export default function ExpensesPage() {
           deleteExpense={ctxResponse?.deleteExpense}
         />
       </div>
-    </StyledExpenses>
+    </div>
   )
 }

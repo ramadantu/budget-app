@@ -18,7 +18,7 @@ export default function Nav({ username }: NavProps) {
       {username && (
         <div className="user-con">
           <img src={'../../img/avatar.png'} alt="User Image" />
-          <div className="text">
+          <div>
             <h2>{username}</h2>
             <p>Your Budget</p>
           </div>
@@ -30,7 +30,7 @@ export default function Nav({ username }: NavProps) {
           <li
             key={index}
             onClick={() => router.push(item.link)}
-            className={router.pathname === item.link ? 'active' : ''}
+            className={router.pathname === item.link ? 'active' : undefined}
           >
             <Icon name={item.iconName} />
             {item.title}
@@ -38,7 +38,7 @@ export default function Nav({ username }: NavProps) {
         ))}
       </ul>
 
-      <div className="bottom-nav" onClick={() => signOut()}>
+      <div className="button-sign-out" onClick={() => signOut()}>
         <Icon name="signout" />
         {'Sign Out'}
       </div>

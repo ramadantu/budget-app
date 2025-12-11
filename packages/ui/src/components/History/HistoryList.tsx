@@ -15,7 +15,7 @@ interface HistoryListProps {
 
 function HistoryList({ transactions, deleteExpense, deleteIncome }: HistoryListProps) {
   return (
-    <div className="incomes">
+    <div className="list-container">
       {transactions.map(({ id, title, amount, date, category, description, type }) => {
         return (
           <HistoryListItem $background={'var(--color-green)'} key={id}>

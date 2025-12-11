@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export default styled.nav`
   padding: 2rem 1.5rem;
-  width: 374px;
+  width: 350px;
   height: 100%;
   background: rgba(252, 246, 249, 0.78);
   border: 3px solid #ffffff;
@@ -12,11 +12,13 @@ export default styled.nav`
   flex-direction: column;
   justify-content: space-between;
   gap: 2rem;
+
   .user-con {
     height: 100px;
     display: flex;
     align-items: center;
     gap: 1rem;
+
     img {
       width: 80px;
       height: 80px;
@@ -27,9 +29,11 @@ export default styled.nav`
       padding: 0.2rem;
       box-shadow: 0px 1px 17px rgba(0, 0, 0, 0.06);
     }
+
     h2 {
       color: rgba(34, 34, 96, 1);
     }
+
     p {
       color: rgba(34, 34, 96, 0.6);
     }
@@ -39,6 +43,7 @@ export default styled.nav`
     flex: 1;
     display: flex;
     flex-direction: column;
+
     li {
       display: grid;
       grid-template-columns: 40px auto;
@@ -50,6 +55,7 @@ export default styled.nav`
       color: rgba(34, 34, 96, 0.6);
       padding-left: 1rem;
       position: relative;
+
       i {
         color: rgba(34, 34, 96, 0.6);
         font-size: 1.4rem;
@@ -60,9 +66,11 @@ export default styled.nav`
 
   .active {
     color: rgba(34, 34, 96, 1) !important;
+
     i {
       color: rgba(34, 34, 96, 1) !important;
     }
+
     &::before {
       content: '';
       position: absolute;
@@ -75,7 +83,7 @@ export default styled.nav`
     }
   }
 
-  .bottom-nav {
+  .button-sign-out {
     cursor: pointer;
     display: flex;
     align-items: center;
