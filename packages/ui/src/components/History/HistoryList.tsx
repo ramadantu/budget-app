@@ -1,11 +1,13 @@
 import { dateFormat } from '../../utils/dateFormat'
-import { Transaction } from '../../utils/types'
+import {
+  EXPENSES_CATEGORY_ICON_MAP,
+  INCOMES_CATEGORY_ICON_MAP,
+  Transaction,
+} from '../../utils/types'
 import { HistoryListItem } from '../../styles/History'
 
 import Button from '../Button'
 import Icon from '../Icon'
-import { CATEGORY_ICON_MAP as EXPENSES_CATEGORY_ICON_MAP } from '../ExpensesDropdown'
-import { CATEGORY_ICON_MAP as INCOMES_CATEGORY_ICON_MAP } from '../IncomesDropdown'
 
 interface HistoryListProps {
   transactions: Transaction[]

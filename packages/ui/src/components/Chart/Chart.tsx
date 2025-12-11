@@ -35,30 +35,20 @@ function Chart({ incomes, expenses }: ChartProps) {
   const data =
     incomes && expenses
       ? {
-          labels: incomes.map((income) => {
-            const { date } = income
-            return dateFormat(date ?? new Date(Date.now()))
-          }),
+          labels: [
+            ...incomes.map((item) => dateFormat(item.date ?? new Date(Date.now()))),
+            ...expenses.map((item) => dateFormat(item.date ?? new Date(Date.now()))),
+          ],
           datasets: [
             {
-              label: 'Income',
-              data: [
-                ...incomes.map((income) => {
-                  const { amount } = income
-                  return amount
-                }),
-              ],
+              label: 'Incomes',
+              data: [...incomes.map((item) => item.amount)],
               backgroundColor: 'green',
               tension: 0.2,
             },
             {
-              label: 'Expense',
-              data: [
-                ...expenses.map((expense) => {
-                  const { amount } = expense
-                  return amount
-                }),
-              ],
+              label: 'Expenses',
+              data: [...expenses.map((item) => item.amount)],
               backgroundColor: 'red',
               tension: 0.2,
             },

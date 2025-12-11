@@ -15,6 +15,20 @@ export default function DashboardPage() {
 
   const dollar = <Icon name="dollar" />
 
+  const incomesAmounts =
+    ctxResponse && ctxResponse.incomes.length > 0
+      ? ctxResponse.incomes.map((item) => item.amount ?? 0)
+      : [0]
+  const expensesAmounts =
+    ctxResponse && ctxResponse.expenses.length > 0
+      ? ctxResponse.expenses.map((item) => item.amount ?? 0)
+      : [0]
+
+  const minIncome = Math.min(...incomesAmounts)
+  const maxIncome = Math.max(...incomesAmounts)
+  const minExpense = Math.min(...expensesAmounts)
+  const maxExpense = Math.max(...expensesAmounts)
+
   return (
     <StyledDashboard>
       <h1>All Transactions</h1>
@@ -25,19 +39,19 @@ export default function DashboardPage() {
             <div className="income">
               <h2>Total Incomes</h2>
               <p>
-                {dollar} {ctxResponse?.totalIncomes()}
+                {dollar} {ctxResponse?.totalIncomes() ?? 0}
               </p>
             </div>
             <div className="expense">
               <h2>Total Expenses</h2>
               <p>
-                {dollar} {ctxResponse?.totalExpenses()}
+                {dollar} {ctxResponse?.totalExpenses() ?? 0}
               </p>
             </div>
             <div className="balance">
               <h2>Total Balance</h2>
               <p>
-                {dollar} {ctxResponse?.totalBalance()}
+                {dollar} {ctxResponse?.totalBalance() ?? 0}
               </p>
             </div>
           </div>
@@ -49,8 +63,8 @@ export default function DashboardPage() {
           </h2>
           {ctxResponse && (
             <div className="salary-item">
-              <p>${Math.min(...ctxResponse.incomes.map((item) => item.amount || 0))}</p>
-              <p>${Math.max(...ctxResponse.incomes.map((item) => item.amount || 0))}</p>
+              <p>${minIncome}</p>
+              <p>${maxIncome}</p>
             </div>
           )}
           <h2 className="salary-title">
@@ -58,8 +72,8 @@ export default function DashboardPage() {
           </h2>
           {ctxResponse && (
             <div className="salary-item">
-              <p>${Math.min(...ctxResponse.expenses.map((item) => item.amount || 0))}</p>
-              <p>${Math.max(...ctxResponse.expenses.map((item) => item.amount || 0))}</p>
+              <p>${minExpense}</p>
+              <p>${maxExpense}</p>
             </div>
           )}
         </div>

@@ -3,10 +3,9 @@ import { useState } from 'react'
 import DatePicker from 'react-datepicker'
 
 import StyledForm from '../../styles/Form'
-import { Expense, Income } from '../../utils/types'
+import { Expense, expensesCategories, Income, incomesCategories } from '../../utils/types'
 
-import ExpensesDropdown from '../ExpensesDropdown'
-import IncomesDropdown from '../IncomesDropdown'
+import Dropdown from '../Dropdown'
 import Button from '../Button'
 
 interface FormProps {
@@ -67,16 +66,16 @@ function Form({ type, addIncome, addExpense, error, setError }: FormProps) {
           type="text"
           value={title}
           name={'title'}
-          placeholder={`${type} Title`}
+          placeholder={`Title`}
           onChange={handleInput('title')}
         />
       </div>
       <div className="input-control">
         <input
-          value={amount ?? undefined}
+          value={amount ?? ''}
           type="text"
           name={'amount'}
-          placeholder={`${type} Amount`}
+          placeholder={`Amount`}
           onChange={handleInput('amount')}
         />
       </div>
@@ -86,22 +85,20 @@ function Form({ type, addIncome, addExpense, error, setError }: FormProps) {
           placeholderText="Enter a date"
           selected={date}
           dateFormat="dd/MM/yyyy"
-          onChange={(date) => {
-            setInputState({ ...inputState, date: date ?? new Date() })
-          }}
+          onChange={(date) => setInputState({ ...inputState, date: date ?? new Date() })}
         />
       </div>
-      {inputState.type === 'expenses' && (
-        <ExpensesDropdown category={inputState.category} handleInput={handleInput} />
-      )}
-      {inputState.type === 'incomes' && (
-        <IncomesDropdown category={inputState.category} handleInput={handleInput} />
-      )}
+      <Dropdown
+        placeholder="Select Category"
+        options={inputState.type === 'expenses' ? expensesCategories : incomesCategories}
+        selectedOption={inputState.category}
+        handleSelect={handleInput('category')}
+      />
       <div className="input-control">
         <textarea
           name="description"
           value={description}
-          placeholder="Add a description"
+          placeholder="Description"
           id="description"
           cols={30}
           rows={4}
