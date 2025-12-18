@@ -2,45 +2,23 @@ import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useStat
 
 import axios from 'axios'
 
-import { ExpensesCategory, IncomesCategory } from '@budget-app/ui'
+import { Incomes, Expenses } from '@budget-app/prisma'
 
 const BASE_URL = 'http://localhost:5001/api/v1/'
 
-export type Income = {
-  id: string
-  title: string
-  amount: number | null
-  date: Date | null
-  category: IncomesCategory | null
-  description: string
-  createdAt: Date
-  type: 'incomes'
-}
-
-export type Expense = {
-  id: string
-  title: string
-  amount: number | null
-  date: Date | null
-  category: ExpensesCategory | null
-  description: string
-  createdAt: Date
-  type: 'expenses'
-}
-
 interface GlobalContextProps {
-  addIncome: (income: Income) => Promise<void>
+  addIncome: (income: Incomes) => Promise<void>
   getIncomes: () => Promise<void>
-  incomes: Income[]
-  deleteIncome: (id: string) => Promise<void>
-  expenses: Expense[]
+  incomes: Incomes[]
+  deleteIncome: (id: number) => Promise<void>
+  expenses: Expenses[]
   totalIncomes: () => number
-  addExpense: (expense: Expense) => Promise<void>
+  addExpense: (expense: Expenses) => Promise<void>
   getExpenses: () => Promise<void>
-  deleteExpense: (id: string) => Promise<void>
+  deleteExpense: (id: number) => Promise<void>
   totalExpenses: () => number
   totalBalance: () => number
-  transactionHistory: () => (Income | Expense)[]
+  transactionHistory: () => (Incomes | Expenses)[]
   error: string | null
   setError: Dispatch<SetStateAction<string | null>>
 }
@@ -48,30 +26,30 @@ interface GlobalContextProps {
 const GlobalContext = createContext<GlobalContextProps | null>(null)
 
 export const GlobalProvider = ({ children }: { children: ReactNode }) => {
-  const [incomes, setIncomes] = useState([])
-  const [expenses, setExpenses] = useState([])
+  const [incomes, setIncomes] = useState<Incomes[]>([])
+  const [expenses, setExpenses] = useState<Expenses[]>([])
   const [error, setError] = useState<string | null>(null)
 
   const getIncomes = async () => {
     const response = await axios.get(`${BASE_URL}get-incomes`)
-    setIncomes(response.data.map((income: Income) => ({ ...income, type: 'incomes' })))
+    setIncomes(response.data)
   }
 
-  const addIncome = async (income: Income) => {
+  const addIncome = async (income: Incomes) => {
     await axios.post(`${BASE_URL}add-income`, income).catch((err) => {
       setError(err.response.data.message)
     })
     getIncomes()
   }
 
-  const deleteIncome = async (id: string) => {
+  const deleteIncome = async (id: number) => {
     await axios.delete(`${BASE_URL}delete-income/${id}`)
     getIncomes()
   }
 
   const totalIncomes = () => {
     let totalIncomes = 0
-    incomes.forEach((income: Income) => {
+    incomes.forEach((income: Incomes) => {
       totalIncomes = totalIncomes + (income.amount ?? 0)
     })
 
@@ -80,24 +58,24 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 
   const getExpenses = async () => {
     const response = await axios.get(`${BASE_URL}get-expenses`)
-    setExpenses(response.data.map((expense: Expense) => ({ ...expense, type: 'expenses' })))
+    setExpenses(response.data.map((expense: Expenses) => ({ ...expense, type: 'expenses' })))
   }
 
-  const addExpense = async (expense: Expense) => {
+  const addExpense = async (expense: Expenses) => {
     await axios.post(`${BASE_URL}add-expense`, expense).catch((err) => {
       setError(err.response.data.message)
     })
     getExpenses()
   }
 
-  const deleteExpense = async (id: string) => {
+  const deleteExpense = async (id: number) => {
     await axios.delete(`${BASE_URL}delete-expense/${id}`)
     getExpenses()
   }
 
   const totalExpenses = () => {
     let totalExpenses = 0
-    expenses.forEach((expense: Expense) => {
+    expenses.forEach((expense: Expenses) => {
       totalExpenses = totalExpenses + (expense.amount ?? 0)
     })
 
@@ -110,8 +88,8 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 
   const transactionHistory = () => {
     return [...incomes, ...expenses]
-      .sort((a: Income | Expense, b: Income | Expense) => {
-        return Number(new Date(b.createdAt)) - Number(new Date(a.createdAt))
+      .sort((a: Incomes | Expenses, b: Incomes | Expenses) => {
+        return Number(new Date(b.date)) - Number(new Date(a.date))
       })
       .slice(0, 3)
   }

@@ -20,15 +20,14 @@ export default function IncomesPage() {
       <div className="content">
         <div>
           <Form
-            type={'Incomes'}
-            addIncome={ctxResponse?.addIncome}
+            onSubmit={ctxResponse?.addIncome}
             error={ctxResponse?.error ?? ''}
             setError={ctxResponse?.setError}
           />
         </div>
         <HistoryList
           transactions={ctxResponse?.incomes ?? []}
-          deleteIncome={ctxResponse?.deleteIncome}
+          onDelete={ctxResponse?.deleteIncome}
         />
       </div>
     </div>

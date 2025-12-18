@@ -3,59 +3,52 @@ import { useState } from 'react'
 import DatePicker from 'react-datepicker'
 
 import StyledForm from '../../styles/Form'
-import { Expense, expensesCategories, Income, incomesCategories } from '../../utils/types'
+import { Expense, expensesCategories, Income } from '../../utils/types'
 
 import Dropdown from '../Dropdown'
 import Button from '../Button'
 
 interface FormProps {
-  type: 'Incomes' | 'Expenses'
-  addIncome?: ((income: Income) => Promise<void>) | undefined
-  addExpense?: ((expense: Expense) => Promise<void>) | undefined
+  onSubmit?: ((data: Income | Expense) => Promise<void>) | undefined
   error?: string | undefined
   setError?: ((error: string) => void) | undefined
 }
 
-function Form({ type, addIncome, addExpense, error, setError }: FormProps) {
-  const [inputState, setInputState] = useState<Expense | Income>({
-    id: '',
+function Form({ onSubmit, error, setError }: FormProps) {
+  const [inputState, setInputState] = useState({
     title: '',
-    amount: null,
-    date: null,
-    category: null,
+    amount: 0,
+    date: new Date(),
+    category: '',
     description: '',
-    createdAt: new Date(),
-    type: type.toLowerCase() as Expense['type'] | Income['type'],
   })
-
-  const { title, amount, date, description } = inputState
 
   const handleInput =
     (name: string) =>
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-      setInputState({ ...inputState, [name]: e.target.value })
+      setInputState({ ...(inputState ?? {}), [name]: e.target.value })
       setError?.('')
     }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-
-    if (inputState.type === 'expenses') {
-      addExpense?.(inputState)
-    } else {
-      addIncome?.(inputState)
+    if (inputState) {
+      e.preventDefault()
+      onSubmit?.({
+        id: 1,
+        title: inputState.title,
+        amount: inputState.amount,
+        date: inputState.date,
+        category: inputState.category,
+        description: inputState.description,
+      })
+      setInputState({
+        title: '',
+        amount: 0,
+        date: new Date(),
+        category: '',
+        description: '',
+      })
     }
-
-    setInputState({
-      id: '',
-      title: '',
-      amount: null,
-      date: null,
-      category: null,
-      description: '',
-      createdAt: new Date(),
-      type: type.toLowerCase() as Expense['type'] | Income['type'],
-    })
   }
 
   return (
@@ -64,7 +57,7 @@ function Form({ type, addIncome, addExpense, error, setError }: FormProps) {
       <div className="input-control">
         <input
           type="text"
-          value={title}
+          value={inputState?.title ?? ''}
           name={'title'}
           placeholder={`Title`}
           onChange={handleInput('title')}
@@ -72,7 +65,7 @@ function Form({ type, addIncome, addExpense, error, setError }: FormProps) {
       </div>
       <div className="input-control">
         <input
-          value={amount ?? ''}
+          value={inputState?.amount ?? ''}
           type="text"
           name={'amount'}
           placeholder={`Amount`}
@@ -83,21 +76,24 @@ function Form({ type, addIncome, addExpense, error, setError }: FormProps) {
         <DatePicker
           id="date"
           placeholderText="Enter a date"
-          selected={date}
+          selected={inputState?.date ?? null}
           dateFormat="dd/MM/yyyy"
-          onChange={(date) => setInputState({ ...inputState, date: date ?? new Date() })}
+          onChange={(date) =>
+            inputState && setInputState({ ...inputState, date: date ?? new Date() })
+          }
         />
       </div>
       <Dropdown
         placeholder="Select Category"
-        options={inputState.type === 'expenses' ? expensesCategories : incomesCategories}
-        selectedOption={inputState.category}
+        // TODO: fix options based on transaction type
+        options={expensesCategories}
+        selectedOption={inputState?.category ?? null}
         handleSelect={handleInput('category')}
       />
       <div className="input-control">
         <textarea
           name="description"
-          value={description}
+          value={inputState?.description ?? ''}
           placeholder="Description"
           id="description"
           cols={30}
@@ -107,7 +103,8 @@ function Form({ type, addIncome, addExpense, error, setError }: FormProps) {
       </div>
       <div className="submit-btn">
         <Button
-          text={`Add ${type}`}
+          // TODO: fix button text based on transaction type
+          text={`Add Expenses`}
           iconName="plus"
           color={'var(--color-accent, inherit)'}
           textColor={'#fff'}

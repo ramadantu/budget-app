@@ -1,9 +1,5 @@
 import { dateFormat } from '../../utils/dateFormat'
-import {
-  EXPENSES_CATEGORY_ICON_MAP,
-  INCOMES_CATEGORY_ICON_MAP,
-  Transaction,
-} from '../../utils/types'
+import { EXPENSES_CATEGORY_ICON_MAP, Transaction } from '../../utils/types'
 import { HistoryListItem } from '../../styles/History'
 
 import Button from '../Button'
@@ -11,23 +7,17 @@ import Icon from '../Icon'
 
 interface HistoryListProps {
   transactions: Transaction[]
-  deleteExpense?: ((id: string) => Promise<void>) | undefined
-  deleteIncome?: ((id: string) => Promise<void>) | undefined
+  onDelete?: ((id: number) => Promise<void>) | undefined
 }
 
-function HistoryList({ transactions, deleteExpense, deleteIncome }: HistoryListProps) {
+function HistoryList({ transactions, onDelete }: HistoryListProps) {
   return (
     <div className="list-container">
-      {transactions.map(({ id, title, amount, date, category, description, type }) => {
+      {transactions.map(({ id, title, amount, date, category, description }) => {
         return (
           <HistoryListItem $background={'var(--color-green)'} key={id}>
             <div className="icon">
-              {type === 'expenses' && category && (
-                <Icon name={EXPENSES_CATEGORY_ICON_MAP[category]} />
-              )}
-              {type === 'incomes' && category && (
-                <Icon name={INCOMES_CATEGORY_ICON_MAP[category]} />
-              )}
+              {category && <Icon name={EXPENSES_CATEGORY_ICON_MAP[category] ?? 'circle'} />}
             </div>
             <div className="content">
               <h5>{title}</h5>
@@ -53,7 +43,7 @@ function HistoryList({ transactions, deleteExpense, deleteIncome }: HistoryListP
                     textColor={'#fff'}
                     padding={'1rem'}
                     borderRadius={'50%'}
-                    onClick={() => (type === 'expenses' ? deleteExpense?.(id) : deleteIncome?.(id))}
+                    onClick={() => onDelete?.(id)}
                   />
                 </div>
               </div>

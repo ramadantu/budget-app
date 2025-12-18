@@ -20,15 +20,14 @@ export default function ExpensesPage() {
       <div className="content">
         <div>
           <Form
-            type={'Expenses'}
-            addExpense={ctxResponse?.addExpense}
+            onSubmit={ctxResponse?.addExpense}
             error={ctxResponse?.error ?? ''}
             setError={ctxResponse?.setError}
           />
         </div>
         <HistoryList
           transactions={ctxResponse?.expenses ?? []}
-          deleteExpense={ctxResponse?.deleteExpense}
+          onDelete={ctxResponse?.deleteExpense}
         />
       </div>
     </div>

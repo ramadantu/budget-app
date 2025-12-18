@@ -21,28 +21,24 @@ export type IncomesCategory =
   | 'other'
 
 export interface Expense {
-  id: string
+  id: number
   title: string
-  amount: number | null
-  date: Date | null
-  category: ExpensesCategory | null
-  description: string
-  type: 'expenses'
-  createdAt: Date
+  amount: number
+  date: Date
+  category: string
+  description: string | null
 }
 
 export interface Income {
-  id: string
+  id: number
   title: string
-  amount: number | null
-  date: Date | null
-  category: IncomesCategory | null
-  description: string
-  type: 'incomes'
-  createdAt: Date
+  amount: number
+  date: Date
+  category: string
+  description: string | null
 }
 
-export const EXPENSES_CATEGORY_ICON_MAP: Record<ExpensesCategory, IconName> = {
+export const EXPENSES_CATEGORY_ICON_MAP: Record<string, IconName> = {
   education: 'book',
   groceries: 'food',
   health: 'medical',
@@ -51,9 +47,6 @@ export const EXPENSES_CATEGORY_ICON_MAP: Record<ExpensesCategory, IconName> = {
   clothing: 'clothing',
   travelling: 'freelance',
   other: 'circle',
-}
-
-export const INCOMES_CATEGORY_ICON_MAP: Record<IncomesCategory, IconName> = {
   salary: 'money',
   freelancing: 'freelance',
   investments: 'stocks',
@@ -61,7 +54,6 @@ export const INCOMES_CATEGORY_ICON_MAP: Record<IncomesCategory, IconName> = {
   bitcoin: 'bitcoin',
   bank: 'card',
   youtube: 'yt',
-  other: 'piggy',
 }
 
 export const expensesCategories: readonly ExpensesCategory[] = [
@@ -86,4 +78,4 @@ export const incomesCategories: readonly IncomesCategory[] = [
   'other',
 ]
 
-export type Transaction = Expense | Income
+export type Transaction = Income
