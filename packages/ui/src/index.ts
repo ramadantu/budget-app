@@ -5,4 +5,11 @@ export { default as TransactionsHistory, HistoryList } from './components/Histor
 export { default as Icon, type IconName } from './components/Icon'
 export { default as Dropdown, type DropdownProps } from './components/Dropdown'
 
-export { type ExpensesCategory, type IncomesCategory } from './utils/types'
+export {
+  expensesCategories,
+  incomesCategories,
+  type Income,
+  type Expense,
+  type ExpensesCategory,
+  type IncomesCategory,
+} from './utils/types'

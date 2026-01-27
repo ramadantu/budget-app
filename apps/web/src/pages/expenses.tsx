@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import { Form, HistoryList } from '@budget-app/ui'
+import { expensesCategories, Form, HistoryList } from '@budget-app/ui'
 
 import { useGlobalContext } from '../context/globalContext'
 
@@ -23,6 +23,8 @@ export default function ExpensesPage() {
             onSubmit={ctxResponse?.addExpense}
             error={ctxResponse?.error ?? ''}
             setError={ctxResponse?.setError}
+            confirmButtonText="Add Expense"
+            categoryList={expensesCategories}
           />
         </div>
         <HistoryList
