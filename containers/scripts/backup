@@ -11,7 +11,6 @@ get_secret() {
     yq "$secret_name" "$file"
 }
 
-# db_password="$(get_secret .services.backend.environment.DB_PASSWORD "$DOCKER_COMPOSE_APPS_FILE")"
 postgres_password="$(get_secret .services.postgres.environment.POSTGRES_PASSWORD "$DOCKER_COMPOSE_FILE")"
 
 cat <<EOL > ~/.pgpass
@@ -36,5 +35,4 @@ chmod 600 ~/.pgpass
   else
     sed -i 's/CREATE ROLE postgres;/-- CREATE ROLE postgres;/g' $SCRIPT_DIR/../backup/postgres/docker-entrypoint-initdb.d/01_roles.sql
   fi
-  # pg_dump -U application -h localhost --create application > $SCRIPT_DIR/../backup/docker-entrypoint-initdb.d/04_budget_app.sql
 )

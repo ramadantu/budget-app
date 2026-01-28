@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "name": "@budget-app/prisma",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "license": "MIT",
+  "scripts": {
+    "migrate": "prisma migrate dev",
+    "generate": "prisma generate",
+    "studio": "prisma studio"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.18.0",
+    "dotenv": "^16.5.0",
+    "prisma": "^6.18.0"
+  },
+  "devDependencies": {
+    "@budget-app/tsconfig": "*",
+    "@types/dotenv": "^8.2.3",
+    "@types/node": "^24.0.1",
+    "typescript": "^5.8.3"
+  }
+}
