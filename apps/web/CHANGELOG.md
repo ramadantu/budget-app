@@ -1,5 +1,34 @@
 # Changelog
 
+## [1.2.0](https://github.com/ramadantu/budget-app/compare/web-v1.1.0...web-v1.2.0) (2026-01-30)
+
+
+### Features
+
+* extract UI components to separate package ([#53](https://github.com/ramadantu/budget-app/issues/53)) ([b844c80](https://github.com/ramadantu/budget-app/commit/b844c80d8b028a730afaac245d9e2cd701b7743d))
+
+
+### Fixes
+
+* clean up runtime warnings ([fb2b007](https://github.com/ramadantu/budget-app/commit/fb2b007212d32d9ff16bf2968a28ed35b00f63ae))
+* git ignore env files ([#52](https://github.com/ramadantu/budget-app/issues/52)) ([a8575b8](https://github.com/ramadantu/budget-app/commit/a8575b8ccd7ecf3111564509c8db8efff19793bc))
+* use ReactKeycloakProvider ([8549574](https://github.com/ramadantu/budget-app/commit/85495747379ecb5119a34fb9cff3c55a831fb2ed))
+
+
+### Refactors
+
+* update chart data ([#57](https://github.com/ramadantu/budget-app/issues/57)) ([60d8cfc](https://github.com/ramadantu/budget-app/commit/60d8cfc7a2f8dad0302761ae25b666890e740b52))
+
+
+### Chores
+
+* config eslint ([#51](https://github.com/ramadantu/budget-app/issues/51)) ([fc7665a](https://github.com/ramadantu/budget-app/commit/fc7665aabf841d7ee0cf1508ceaf375fbb7e7cdc))
+* config NextJS ([#50](https://github.com/ramadantu/budget-app/issues/50)) ([840b837](https://github.com/ramadantu/budget-app/commit/840b837f501f2452fcca217254a1dd66f1e2bb70))
+* config TypeScript ([af6fbc1](https://github.com/ramadantu/budget-app/commit/af6fbc10b5e0d1383b989c74e4e8832fdb57c60e))
+* enable LogOut user ([248949e](https://github.com/ramadantu/budget-app/commit/248949e516031979d54e97db21d0039ffd5115a2))
+* update DB to PostgreSQL ([c5b198c](https://github.com/ramadantu/budget-app/commit/c5b198cc776d5c693118c4ad5fa20d51f02c0e6e))
+* use Router ([7b44f00](https://github.com/ramadantu/budget-app/commit/7b44f00c887c5b62e2da99e55a309d484bf278cc))
+
 ## [1.1.0](https://github.com/ramadantu/budget-app/compare/web-v1.0.0...web-v1.1.0) (2025-10-14)
 
 
