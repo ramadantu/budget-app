@@ -15,11 +15,6 @@ export const menuItems: MenuItem[] = [
     link: Route.Dashboard,
   },
   {
-    title: 'View Transactions',
-    iconName: 'transactions',
-    link: Route.Transactions,
-  },
-  {
     title: 'Incomes',
     iconName: 'trend',
     link: Route.Incomes,
